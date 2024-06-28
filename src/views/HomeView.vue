@@ -7,10 +7,18 @@
         v-model="textarea" /></div>
     <el-button @click="testMerge" type="primary">Merge Object Test</el-button> -->
     <el-button @click="getRandomDataForSlider" type="primary">Get Random Data For Slider</el-button>
-    <div style="width: 600px;" class="testArea"><Slider :arrData="arrData_1" /></div>
-    <div style="width: 100%;" class="testArea"><Slider :arrData="arrData_2" /></div>
-    <div style="width: 50%;" class="testArea"><Slider :arrData="arrData_3" /></div>
-    <div style="width: 50%;" class="testArea"><Slider :arrData="arrData_4" /></div>
+    <div style="width: 600px;" class="testArea">
+      <Slider :arrData="arrData_1" />
+    </div>
+    <div style="width: 100%;" class="testArea">
+      <Slider :arrData="arrData_2" />
+    </div>
+    <div style="width: 50%;" class="testArea">
+      <Slider :arrData="arrData_3" />
+    </div>
+    <div style="width: 50%;" class="testArea">
+      <Slider :arrData="arrData_4" />
+    </div>
   </div>
 </template>
 
@@ -37,17 +45,17 @@ export default {
   mounted() {
   },
   methods: {
-    getRandomDataForSlider () {
-      for (let i=1 ; i<=4 ; i++) {
-        let loopTime = _.random(1,15);
+    getRandomDataForSlider() {
+      for (let i = 1; i <= 4; i++) {
+        let loopTime = _.random(1, 15);
         let arrNew = [];
-        for (let y=0 ; y<loopTime ; y++) {
+        for (let y = 0; y < loopTime; y++) {
           arrNew.push(String(y).padStart(2, '0'));
         }
         this[`arrData_${i}`] = _.cloneDeep(arrNew);
       }
     },
-    
+
     testMerge() {
       const object1 = {
         a: 1,
@@ -2175,6 +2183,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .testArea {
   background-color: #ddd;
   margin: 15px 0;
