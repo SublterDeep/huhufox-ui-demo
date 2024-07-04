@@ -11,6 +11,8 @@
     "element-ui": "^2.15.14",
     "jquery": "^3.7.1",
     "lodash": "^4.17.21",
+    "node-sass": "^9.0.0",
+    "sass-loader": "^14.2.1",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"

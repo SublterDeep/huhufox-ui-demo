@@ -1,11 +1,11 @@
 <template>
-  <div class="root" @mouseenter="autoScroll = false" @mouseleave="autoScroll = true"
+  <div class="root" @mouseenter="handleMouseHover(true)" @mouseleave="handleMouseHover(false)"
     :style="{ borderRadius: borderRadius + (typeof borderRadius === 'string' ? '' : 'px') }">
     <section class="coverArea" v-if="disable"></section>
-    <section class="picArea" :style="{ height: picHeight + (typeof picHeight === 'string' ? '' : 'px') }">
-      <div class="picArrowArea" v-if="arrData.length > 1">
-        <div @click="handleArrowBTNclick(false)" class="picArrowArea_leftBTN arrowBTN"></div>
-        <div @click="handleArrowBTNclick(true)" class="picArrowArea_rightBTN arrowBTN"></div>
+    <section class="picArea" :style="{ height: picHeight + (typeof picHeight === 'string' ? '' : 'px'), borderRadius: borderRadius + (typeof borderRadius === 'string' ? '' : 'px') }">
+      <div class="picArrowArea" :style="{opacity: ((alwaysShowArrow || currentAlwaysShowArrow) ? 1 : 0)}"  v-if="arrData.length > 1 && showArrow">
+        <div @click="handleArrowBTNclick(false)" class="picArrowArea_leftBTN arrowBTN el-icon-arrow-left"></div>
+        <div @click="handleArrowBTNclick(true)" class="picArrowArea_rightBTN arrowBTN el-icon-arrow-right"></div>
       </div>
       <div class="pic_container" ref="pic_container">
         <section id="left_container"
@@ -29,7 +29,7 @@
       </div>
     </section>
     <section class="ctrlArea" :style="{ height: ctrlHeight + (typeof ctrlHeight === 'string' ? '' : 'px') }">
-      <div class="btnGroupArea">
+      <div class="btnGroupArea" v-if="showGroup">
         <div @click="handleCtrlBTNclick(idx)" :class="getCtrlBTNactiveClass(idx)" v-for="(item, idx) in arrData"
           :key="idx"></div>
       </div>
@@ -60,19 +60,48 @@ export default {
     },
     arrData: { // 图片数据
       type: Array,
+      default: (data=[''])=>{return data},
     },
     transitionTime: { // 切换轮播图时过渡动画时长
       type: Number,
       default: 0.15,
     },
+    autoScroll: { // 是否自动轮播
+      type: Boolean,
+      default: true
+    },
     scrollTime: { // 自动轮播停留时长
       type: Number,
       default: 1.5,
     },
-    btnStyle: {
+    btnStyle: { // 箭头按钮和组按钮样式集
       type: Object,
       default: (data={})=>{return data}
-    }
+      /* 
+        {
+          arrowColor: '#CACACA',
+          arrowColor_hover: '#999',
+          arrowColor_active: '#707070',
+          arrowColor_arrow: '#fff',
+          groupColor: '#CACACA',
+          groupColor_hover: '#999',
+          groupColor_active: '#707070',
+          ...this.btnStyle,
+        } 
+      */
+    },
+    showArrow: { // 是否显示箭头按钮
+      type: Boolean,
+      default: true,
+    },
+    alwaysShowArrow: { // 是否一直显示箭头按钮
+      type: Boolean,
+      default: true,
+    },
+    showGroup: { // 是否显示组按钮
+      type: Boolean,
+      default: true,
+    },
   },
   model: {
     data: {
@@ -84,19 +113,21 @@ export default {
     return {
       nowSelect: 0, // 轮播图当前项下标
       intervalTimer: null, // 自动轮播计时器对象
-      autoScroll: true, // 是否自动轮播
       containerIndex: 0, // [左，中，右]容器对应[-1，0，1]
       containerWidth: 0, // [左，中，右]容器宽度
       container_pos: [0, 0, 0], // [左，中，右]容器x坐标
       container_timer: null,
       transitionAnim: true, // 是否启用翻页动画
+      currentStyle: {}, // 计算后的按钮样式设定集
+      currentAutoScroll: true, // 本地是否启用自动轮播
+      currentAlwaysShowArrow: false, // 本地是否一直显示箭头按钮
     };
   },
   mounted() {
     this.init();
   },
   watch: {
-    autoScroll(nval, oval) {
+    currentAutoScroll(nval, oval) {
       this.handleInterval(nval);
     },
     // 轮播图分为 [左,中,右] 完全相等的三个部分,每个部分显示所有要轮播的图片 默认为中间部分轮播 当涉及跨度较大的轮播变化时 从中间轮播转到左/右轮播对应位置
@@ -118,7 +149,6 @@ export default {
         domIndex = leftStepNum > rightStepNum ? 1 : 0;
       }
       isRight = rightStepNum > leftStepNum ? false : true;
-      // console.log(`选中项：${nval}，当前项：${oval}；左侧步数：${leftStepNum}，右侧步数：${rightStepNum}；向${isRight?'右':'左'}侧滑动`);
       this.handleAnimation(isRight, domIndex);
     },
     arrData: {
@@ -135,22 +165,31 @@ export default {
   },
   methods: {
     init() {
-      this.handleInterval();
+      if (_.isUndefined(this.arrData) || _.isNull(this.arrData) || this.arrData.length === 0) {
+        console.log('轮播图组件：请在标签携带图片数组变量！(arrData: [])');
+        return;
+      }
+      this.handleInterval(this.currentAutoScroll);
       this.handleData();
       this.handleBtnStyle();
       this.handleContainerPos(0);
     },
+    handleMouseHover (hover) {
+      this.currentAutoScroll = !hover;
+      this.currentAlwaysShowArrow = hover;
+    },
     handleBtnStyle () {
       let btnStyle = {
-        arrowColor: 'arrowColor',
-        arrowColor_hover: 'arrowColor_hover',
-        arrowColor_active: 'arrowColor_active',
-        groupColor: 'groupColor',
-        groupColor_hover: 'groupColor_hover',
-        groupColor_active: 'groupColor_active',
+        arrowColor: '#CACACA',
+        arrowColor_hover: '#999',
+        arrowColor_active: '#707070',
+        arrowColor_arrow: '#fff',
+        groupColor: '#CACACA',
+        groupColor_hover: '#999',
+        groupColor_active: '#707070',
         ...this.btnStyle,
       }
-      console.log(btnStyle);
+      this.currentStyle = btnStyle;
     },
     rmb(str) {
       let strArr = String(parseFloat(str).toFixed(2))
@@ -228,7 +267,7 @@ export default {
     },
     // 开启/关闭自动轮播计时器
     handleInterval(autoscroll = true) {
-      if (autoscroll) {
+      if (autoscroll && this.autoScroll) {
         if (_.isNull(this.intervalTimer)) {
           this.intervalTimer = setInterval(() => {
             this.nowSelect = (this.nowSelect + 1) % this.arrData.length;
@@ -266,9 +305,9 @@ export default {
 }
 </script>
 
-<style scoped>
-.root {
-  background-color: #eee;
+<style lang="scss" scoped>
+.root{
+  background-color: '#fff';
   position: relative;
   overflow: hidden;
 }
@@ -286,7 +325,7 @@ export default {
 
 .picArea {
   width: 100%;
-  /* background-color: orchid; */
+  overflow: hidden;
   position: relative;
 }
 
@@ -298,6 +337,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: .15s;
 }
 
 .picArrowArea_leftBTN {}
@@ -307,17 +347,20 @@ export default {
 .arrowBTN {
   width: 30px;
   height: 55px;
-  /* background-color: red; */
+  line-height: 55px;
+  font-size: 24px;
+  background-color: v-bind('currentStyle.arrowColor');
+  color: v-bind('currentStyle.arrowColor_arrow');
   cursor: pointer;
   transition: .15s;
 }
 
 .arrowBTN:hover {
-  background-color: #666;
+  background-color: v-bind('currentStyle.arrowColor_hover');
 }
 
 .arrowBTN:active {
-  background-color: #333;
+  background-color: v-bind('currentStyle.arrowColor_active');
   transform: scale(0.95);
 }
 
@@ -349,21 +392,21 @@ export default {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #000;
+  background-color: v-bind('currentStyle.groupColor');
   cursor: pointer;
   transition: .15s;
 }
 
 .ctrlBTN_active {
-  background-color: red !important;
+  background-color: v-bind('currentStyle.groupColor_active') !important;
 }
 
 .ctrlBTN:hover {
-  background-color: #666;
+  background-color: v-bind('currentStyle.groupColor_hover');
 }
 
 .ctrlBTN:active {
-  background-color: #333;
+  background-color: v-bind('currentStyle.groupColor_active') !important;
   transform: scale(0.95);
 }
 

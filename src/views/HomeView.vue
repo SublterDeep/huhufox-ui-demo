@@ -7,17 +7,35 @@
         v-model="textarea" /></div>
     <el-button @click="testMerge" type="primary">Merge Object Test</el-button> -->
     <el-button @click="getRandomDataForSlider" type="primary">Get Random Data For Slider</el-button>
+    <div style="width: 50%;" class="testArea">
+      <h2>标准轮播图</h2>
+      <h6>非常普通的轮播图</h6>
+      <Slider :arrData="arrData_1" />
+    </div>
     <div style="width: 600px;" class="testArea">
-      <Slider :arrData="arrData_1" :btnStyle="{arrowColor: 'homeview_arrowColor', arrowColor_hover: 'homeview_arrowColor_hover'}" />
+      <h2>标准轮播图</h2>
+      <h6>关闭自动轮播；仅在鼠标悬浮时显示箭头按钮；带有自定义按钮样式的轮播图</h6>
+      <Slider :autoScroll="false" :alwaysShowArrow="false" :arrData="arrData_1" :btnStyle="{arrowColor: '#f60', arrowColor_hover: 'black', groupColor_active: 'red'}" />
     </div>
     <div style="width: 100%;" class="testArea">
-      <!-- <Slider :arrData="arrData_2" :borderRadius="'15px'" /> -->
+      <h2>标准轮播图</h2>
+      <h6>带有圆角，隐藏箭头按钮的轮播图</h6>
+      <Slider :arrData="arrData_2" :borderRadius="'15px'" :showArrow="false" />
     </div>
     <div style="width: 50%;" class="testArea">
-      <!-- <Slider :arrData="arrData_3" :transitionTime="0.5" style="box-shadow: 20px 20px 20px" /> -->
+      <h2>自定义外观的轮播图</h2>
+      <h6>自定义滚动过渡动画持续时间，自定义轮播图组件阴影的轮播图</h6>
+      <Slider :arrData="arrData_3" :transitionTime="0.5" style="box-shadow: 20px 20px 20px" />
     </div>
     <div style="width: 50%;" class="testArea">
-      <!-- <Slider :arrData="arrData_4" /> -->
+      <h2>只有一项数据的轮播图</h2>
+      <h6>只有一项数据的轮播图</h6>
+      <Slider :arrData="arrData_4" />
+    </div>
+    <div style="width: 600px;" class="testArea">
+      <h2>空数据轮播图</h2>
+      <h6>记得携带数据，否则会显示成这样</h6>
+      <Slider  />
     </div>
   </div>
 </template>
