@@ -8,13 +8,13 @@
     <el-button @click="testMerge" type="primary">Merge Object Test</el-button> -->
     <el-button @click="getRandomDataForSlider" type="primary">Get Random Data For Slider</el-button>
     <div style="width: 600px;" class="testArea">
-      <Slider :arrData="arrData_1" />
+      <Slider :arrData="arrData_1" :btnStyle="{arrowColor: 'homeview_arrowColor', arrowColor_hover: 'homeview_arrowColor_hover'}" />
     </div>
     <div style="width: 100%;" class="testArea">
-      <Slider :arrData="arrData_2" :borderRadius="'15px'" />
+      <!-- <Slider :arrData="arrData_2" :borderRadius="'15px'" /> -->
     </div>
     <div style="width: 50%;" class="testArea">
-      <Slider :arrData="arrData_3" :transitionTime="0.5" style="box-shadow: 20px 20px 20px" />
+      <!-- <Slider :arrData="arrData_3" :transitionTime="0.5" style="box-shadow: 20px 20px 20px" /> -->
     </div>
     <div style="width: 50%;" class="testArea">
       <!-- <Slider :arrData="arrData_4" /> -->

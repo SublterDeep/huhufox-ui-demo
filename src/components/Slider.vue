@@ -71,7 +71,7 @@ export default {
     },
     btnStyle: {
       type: Object,
-      default: {}
+      default: (data={})=>{return data}
     }
   },
   model: {
@@ -137,17 +137,20 @@ export default {
     init() {
       this.handleInterval();
       this.handleData();
+      this.handleBtnStyle();
       this.handleContainerPos(0);
     },
     handleBtnStyle () {
-      this.btnStyle = {
-        arrowColor: '',
-        arrowColor_active: '',
-        arrowColor_hover: '',
-        groupColor: '',
-        groupColor_active: '',
-        groupColor_hover: '',
+      let btnStyle = {
+        arrowColor: 'arrowColor',
+        arrowColor_hover: 'arrowColor_hover',
+        arrowColor_active: 'arrowColor_active',
+        groupColor: 'groupColor',
+        groupColor_hover: 'groupColor_hover',
+        groupColor_active: 'groupColor_active',
+        ...this.btnStyle,
       }
+      console.log(btnStyle);
     },
     rmb(str) {
       let strArr = String(parseFloat(str).toFixed(2))
@@ -250,7 +253,6 @@ export default {
           color: this.randomHexColor()
         }
       }
-      console.log(this.arrData);
     },
     //随机生成十六进制颜色
     randomHexColor() {
