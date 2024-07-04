@@ -11,13 +11,13 @@
       <Slider :arrData="arrData_1" />
     </div>
     <div style="width: 100%;" class="testArea">
-      <Slider :arrData="arrData_2" />
+      <Slider :arrData="arrData_2" :borderRadius="'15px'" />
     </div>
     <div style="width: 50%;" class="testArea">
-      <Slider :arrData="arrData_3" />
+      <Slider :arrData="arrData_3" :transitionTime="0.5" style="box-shadow: 20px 20px 20px" />
     </div>
     <div style="width: 50%;" class="testArea">
-      <Slider :arrData="arrData_4" />
+      <!-- <Slider :arrData="arrData_4" /> -->
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
       textarea: '',
       arrData_1: ['01', '02', '03', '04', '05', '06', '07'],
       arrData_2: ['01', '02', '03', '04', '05', '06',],
-      arrData_3: ['01', '02',],
+      arrData_3: ['01', '02', '03'],
       arrData_4: ['01',],
     }
   },
@@ -2185,7 +2185,7 @@ export default {
 }
 
 .testArea {
-  background-color: #ddd;
+  /* background-color: #ddd; */
   margin: 15px 0;
   padding: 20px 0;
 }
