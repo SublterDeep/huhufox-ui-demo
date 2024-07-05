@@ -6,11 +6,13 @@ import _ from 'lodash';
 import $ from 'jquery';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import utils from './utils/publicMethods';
 
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 Vue.prototype.$ = $;
+Vue.prototype.$utils = utils;
 
 
 new Vue({
