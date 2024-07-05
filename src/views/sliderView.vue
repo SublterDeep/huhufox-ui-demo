@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="sliderView">
 
-    <h1>Home view</h1>
+    <h1>slider view</h1>
     
     <!-- <Yanzheng/> -->
     <!-- <el-button @click="testRandom" type="primary">Random Arr Num Chunk Test</el-button>
@@ -10,7 +10,7 @@
         v-model="textarea" /></div>
     <el-button @click="testMerge" type="primary">Merge Object Test</el-button> -->
 
-    <!-- <el-button @click="getRandomDataForSlider" type="primary">Get Random Data For Slider</el-button>
+    <el-button @click="getRandomDataForSlider" type="primary">Get Random Data For Slider</el-button>
     <div style="width: 50%;" class="testArea">
       <h2>标准轮播图</h2>
       <h6>非常普通的轮播图</h6>
@@ -47,7 +47,7 @@
       <h6>2.增加插槽：包括轮播图片插槽、箭头按钮插槽、组按钮插槽</h6>
       <h6>3.增加轮播图切换方式：无论中间隔几幅轮播图，切换时永远只显示切换一次的动画（跳过中间实际存在的轮播图，就像目标和当前选中是相邻的一样）</h6>
       <h6>4.新增页面大小改变事件订阅，当页面大小改变时重新计算轮播图宽度</h6>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -2206,9 +2206,11 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.home {
+.sliderView {
   width: 100%; height: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .testArea {

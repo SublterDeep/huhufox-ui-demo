@@ -64,7 +64,7 @@ export default {
     },
     transitionTime: { // 切换轮播图时过渡动画时长
       type: Number,
-      default: 0.15,
+      default: 0.5,
     },
     autoScroll: { // 是否自动轮播
       type: Boolean,
