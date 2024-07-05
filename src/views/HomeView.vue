@@ -2212,7 +2212,6 @@ export default {
 }
 
 .testArea {
-  /* background-color: #ddd; */
   margin: 15px 0;
   padding: 20px 0;
 }
