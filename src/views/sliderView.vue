@@ -2,43 +2,43 @@
   <div class="wrap">
 
     <div class="title">轮播图</div>
-    <div class="title_s tac">Slider view</div>
+    <div class="title_s tac">fox_slider view</div>
 
     <div class="flex-col flex-alc">
       <div style="width: 50%;" class="testArea">
         <div class="title_s tac">标准轮播图</div>
         <div class="desc m_b">非常普通的轮播图</div>
-        <Slider :arrData="arrData_1" />
-        <el-button class="m_t" @click="getRandomDataForSlider(1)" type="primary">Get Random Data For Slider</el-button>
+        <fox_slider :arrData="arrData_1" />
+        <el-button class="m_t" @click="getRandomDataForSlider(1)" type="primary">Get Random Data For fox_slider</el-button>
       </div>
       <div style="width: 600px;" class="testArea">
         <div class="title_s tac">标准轮播图</div>
         <div class="desc m_b">关闭自动轮播；仅在鼠标悬浮时显示箭头按钮；带有自定义按钮样式的轮播图</div>
-        <Slider :autoScroll="false" :alwaysShowArrow="false" :arrData="arrData_2" :btnStyle="{arrowColor: '#f60', arrowColor_hover: 'black', groupColor_active: 'red'}" />
-        <el-button class="m_t" @click="getRandomDataForSlider(2)" type="primary">Get Random Data For Slider</el-button>
+        <fox_slider :autoScroll="false" :alwaysShowArrow="false" :arrData="arrData_2" :btnStyle="{arrowColor: '#f60', arrowColor_hover: 'black', groupColor_active: 'red'}" />
+        <el-button class="m_t" @click="getRandomDataForSlider(2)" type="primary">Get Random Data For fox_slider</el-button>
       </div>
       <div style="width: 100%;" class="testArea">
         <div class="title_s tac">标准轮播图</div>
         <div class="desc m_b">带有圆角，隐藏箭头按钮的轮播图</div>
-        <Slider :arrData="arrData_3" :borderRadius="'15px'" :showArrow="false" />
-        <el-button class="m_t" @click="getRandomDataForSlider(3)" type="primary">Get Random Data For Slider</el-button>
+        <fox_slider :arrData="arrData_3" :borderRadius="'15px'" :showArrow="false" />
+        <el-button class="m_t" @click="getRandomDataForSlider(3)" type="primary">Get Random Data For fox_slider</el-button>
       </div>
       <div style="width: 50%;" class="testArea">
         <div class="title_s tac">自定义外观的轮播图</div>
         <div class="desc m_b">自定义滚动过渡动画持续时间，自定义轮播图组件阴影的轮播图</div>
-        <Slider :arrData="arrData_4" :transitionTime="0.15" style="box-shadow: 20px 20px 20px" />
-        <el-button class="m_t" @click="getRandomDataForSlider(4)" type="primary">Get Random Data For Slider</el-button>
+        <fox_slider :arrData="arrData_4" :transitionTime="0.15" style="box-shadow: 20px 20px 20px" />
+        <el-button class="m_t" @click="getRandomDataForSlider(4)" type="primary">Get Random Data For fox_slider</el-button>
       </div>
       <div style="width: 50%;" class="testArea">
         <div class="title_s tac">只有一项数据的轮播图</div>
         <div class="desc m_b">只有一项数据的轮播图</div>
-        <Slider :arrData="arrData_5" />
-        <el-button class="m_t" @click="getRandomDataForSlider(5)" type="primary">Get Random Data For Slider</el-button>
+        <fox_slider :arrData="arrData_5" />
+        <el-button class="m_t" @click="getRandomDataForSlider(5)" type="primary">Get Random Data For fox_slider</el-button>
       </div>
       <div style="width: 600px;" class="testArea">
         <div class="title_s tac">空数据轮播图</div>
         <div class="desc m_b">记得携带数据，否则会显示成这样</div>
-        <Slider  />
+        <fox_slider  />
       </div>
       <div style="width: 600px;" class="testArea">
         <div class="title_s tal">更新计划：</div>
@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import Slider from '@/components/Slider.vue';
 
 export default {
   name: 'sliderView',
@@ -66,9 +65,6 @@ export default {
       arrData_4: ['01',],
       arrData_5: ['01', '02', '03'],
     }
-  },
-  components: {
-    Slider,
   },
   mounted() {
   },
