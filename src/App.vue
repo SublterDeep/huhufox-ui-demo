@@ -159,16 +159,16 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+.flex-gap {
+  gap: 15px;
+}
 .m_t {margin-top: 15px !important;}
 .m_b {margin-bottom: 15px !important;}
 .m_l {margin-left: 15px !important;}
 .m_r {margin-right: 15px !important;}
-.tal {text-align: left;}
-.tac {text-align: center;}
-.tar {text-align: right;}
-.flex-gap {
-  gap: 15px;
-}
+.tal {text-align: left !important;}
+.tac {text-align: center !important;}
+.tar {text-align: right !important;}
 .divider {
   width: 100%; height: 50px;
 }

@@ -1,5 +1,12 @@
 # demo
 
+## Project push
+```
+npm run build
+
+git subtree push --prefix dist g gh-pages
+```
+
 ## Project setup
 ```
 npm install
