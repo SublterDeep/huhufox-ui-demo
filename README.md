@@ -1,26 +1,28 @@
-# demo
+# huhufox-ui-demo
 
-## Project push
-```
-npm run build
+huhufox-ui 的使用演示
+Github Page: https://sublterdeep.github.io/huhufox-ui-demo/#/
 
-git subtree push --prefix dist g gh-pages
-```
+原项目：huhufox-ui
+Github: https://github.com/SublterDeep/huhufox-ui
 
-## Project setup
+
+## 安装依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 测试开发
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+### 打包发布
 ```
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 上传分支
+```
+git subtree push --prefix dist g gh-pages
+```
