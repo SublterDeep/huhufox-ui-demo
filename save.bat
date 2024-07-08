@@ -13,3 +13,7 @@ git add .
 
 REM 提交更改
 git commit -m"%YYYY%/%MM%/%DD% save file" || exit /b 1
+
+git status
+
+git log
