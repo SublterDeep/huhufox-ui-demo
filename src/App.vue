@@ -18,19 +18,17 @@
 </template>
 
 <script>
+import routes from '@/router/routes.js';
 export default {
   name: 'HomeView',
   data() {
     return {
-      arrPage: [
-        {name: 'homeView', label: '首页', params: {}},
-        {name: 'testView', label: '测试', params: {}},
-        {name: 'sliderView', label: '轮播图', params: {}},
-      ],
+      arrPage: [],
       numNowSelect: 0,
     }
   },
   mounted() {
+    this.arrPage = _.cloneDeep(routes);
   },
   methods: {
     goPage(pageData, index) {
@@ -59,6 +57,7 @@ body {
   color: #2c3e50;
   height: 100%;
   display: flex;
+  padding-left: 10%;
 }
 
 /* 公共样式 - 容器 */
@@ -68,14 +67,23 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+}
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boxitem {
+  width: 100%;
 }
 #leftWrap {
-  width: 14%;
+  width: 15%;
   height: 100%;
   box-sizing: border-box;
   padding: 2% 0;
-  margin-right: 5px;
+  margin-right: 100px;
   #leftWrapContainer {
     width: 100%; height: 100%;
     overflow: auto;
