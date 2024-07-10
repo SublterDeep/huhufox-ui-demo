@@ -83,9 +83,9 @@
         <div class="box">
           <div class="boxitem">
             <fox_collapse :hoverColor="'#f60'">
-              <fox_collapse_item :label="'自定义列表项背景色1'">设置在折叠面板标签< fox_collapse >< /fox_collapse >上时，颜色默认应用到所有子列表项< fox_collapse_item >< /fox_collapse_item ></fox_collapse_item>
-              <fox_collapse_item :label="'单独自定义某个列表项背景色2'" :hoverColor="'#f00'">可在某列表项上单独设置它的展开图标鼠标悬浮色</fox_collapse_item>
-              <fox_collapse_item :label="'自定义列表项背景色3'">内容3</fox_collapse_item>
+              <fox_collapse_item :label="'自定义展开图标鼠标悬浮色1'">内容3</fox_collapse_item>
+              <fox_collapse_item :label="'单独自定义某个列表项展开图标鼠标悬浮色2'" :hoverColor="'#f00'">可在某列表项上单独设置它的展开图标鼠标悬浮色</fox_collapse_item>
+              <fox_collapse_item :label="'自定义展开图标鼠标悬浮色3'">内容3</fox_collapse_item>
             </fox_collapse>
           </div>
         </div>
