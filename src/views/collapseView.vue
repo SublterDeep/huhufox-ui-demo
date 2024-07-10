@@ -211,8 +211,10 @@ export default {
   updated() {
     Prism.highlightAll(); //修改内容后重新渲染
   },
-  mounted() {
+  beforeMount() {
     this.codeText = _.cloneDeep(codeBlock);
+  },
+  mounted() {
     Prism.highlightAll();
   },
   methods: {},
