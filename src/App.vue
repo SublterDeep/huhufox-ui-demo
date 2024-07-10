@@ -32,6 +32,10 @@ export default {
   },
   mounted() {
     this.arrPage = _.cloneDeep(routes);
+    setTimeout(() => {
+      
+    this.$router.push('homeView'); // 首页重定向
+    }, 10);
   },
   methods: {
     goPage(pageData, index) {
