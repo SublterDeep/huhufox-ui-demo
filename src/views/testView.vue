@@ -1,9 +1,9 @@
 <template>
   <div class="wrap">
     <div class="title">测试</div>
-    <div class="title_s">Test view</div>
-    <div class="desc">描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字</div>
-    <div class="divider_line"></div>
+    <div class="title_s m_b">Test view</div>
+    <div class="desc">用于测试一些函数功能</div>
+    <div class="divider"></div>
     <div class="flex-col flex-alc flex-gap">
       <!-- <Yanzheng/> -->
       <el-button @click="testRandom" type="primary">Random Arr Num Chunk Test</el-button>

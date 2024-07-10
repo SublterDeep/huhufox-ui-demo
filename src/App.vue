@@ -3,6 +3,9 @@
 
     <!-- 左侧列表 -->
      <section id="leftWrap">
+      <div class="flex-center m_b" style="width: 100%;">
+        <img style="max-width: 100%;" src="@/assets/logo/huhufoxUI_transparent.png" alt="">
+      </div>
       <div id="leftWrapContainer">
         <div @click="goPage(item, idx)" v-for="(item, idx) in arrPage" :key="idx" :class="`leftWrapContainer_item ${idx===numNowSelect?'leftWrapContainer_item_active':''}`"><span>{{ item.label }}</span></div>
       </div>
@@ -84,6 +87,7 @@ body {
   box-sizing: border-box;
   padding: 2% 0;
   margin-right: 100px;
+  overflow: hidden;
   #leftWrapContainer {
     width: 100%; height: 100%;
     overflow: auto;
