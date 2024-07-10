@@ -8,9 +8,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import utils from './utils/publicMethods';
 import huhufoxUI from 'huhufox-ui';
+import Prism from "prismjs";
 
 Vue.use(ElementUI);
 Vue.use(huhufoxUI);
+Vue.use(Prism);
 
 Vue.config.productionTip = false
 Vue.prototype.$ = $;
