@@ -193,7 +193,7 @@
       <div class="wrap">
         <div class="title_s m_b">更新计划：</div>
         <div class="desc">1.增加插槽：包括折叠列表项文字插槽、折叠列表项图标插槽、底部展开按钮文字&图标插槽</div>
-        <!-- <div class="desc">2.样式适配：</div> -->
+        <div class="desc">2.默认展开选项，外部控制展开函数，</div>
       </div>
     </div>
   </div>

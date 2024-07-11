@@ -5,4 +5,4 @@ for /f "tokens=1-3 delims=/ " %%a in ('date /t') do (
     set "DD=%%c"
 )
 git add .
-git commit -m"%YYYY%/%MM%/%DD% save file" || exit /b 1
+git commit -m"%YYYY%/%MM%/%DD% save file"
