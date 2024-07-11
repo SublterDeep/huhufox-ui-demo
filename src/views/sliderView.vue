@@ -31,13 +31,13 @@
       
       <div class="wrap">
         <div class="title_s m_b">自定义功能的轮播图</div>
-        <div class="desc m_b">关闭自动轮播；仅在鼠标悬浮时显示箭头按钮；带有自定义按钮样式的轮播图</div>
+        <div class="desc m_b">关闭自动轮播；仅在鼠标悬浮时显示箭头按钮；带有自定义按钮样式；关闭鼠标滑动控制的轮播图</div>
         <div class="box">
           <div class="boxitem">
             <fox_collapse>
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
-                  <fox_slider :autoScroll="false" :alwaysShowArrow="false" :arrData="arrData_2" :btnStyle="{arrowColor: '#f60', arrowColor_hover: 'black', groupColor_active: 'red'}" />
+                  <fox_slider :mouseSwipe="false" :autoScroll="false" :alwaysShowArrow="false" :arrData="arrData_2" :btnStyle="{arrowColor: '#f60', arrowColor_hover: 'black', groupColor_active: 'red'}" />
                   <el-button class="m_t" @click.stop="getRandomDataForSlider(2)" type="primary">点击获取随机数据</el-button>
                 </template>
                 <p class="tal">Template:</p>
