@@ -137,6 +137,53 @@
       <div class="divider"></div>
 
       <div class="wrap">
+        <div class="title_s m_b">使用插槽的轮播图</div>
+        <div class="desc m_b">提供更自由的样式设计。</div>
+        <div class="desc m_b">左右箭头插槽</div>
+        <div class="box">
+          <div class="boxitem">
+            <fox_collapse>
+              <fox_collapse_item :position="'bottom'">
+                <template v-slot:header>
+                  <fox_slider :arrData="arrData_1">
+                    <template v-slot:leftBTN><div class="flex-center" style="cursor: pointer;background-color: aqua;width: 20px;height: 60px;">L</div></template>
+                    <template v-slot:rightBTN><div class="flex-center" style="cursor: pointer;background-color: aqua;width: 20px;height: 60px;">R</div></template>
+                  </fox_slider>
+                </template>
+                <p class="tal">Template:</p>
+                <pre><code class="language-xml line-numbers" v-text="codeText[6][0]"></code></pre>
+                <p class="tal">Script:</p>
+                <pre><code class="language-js line-numbers" v-text="codeText[6][1]"></code></pre>
+              </fox_collapse_item>
+            </fox_collapse>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="desc m_b">底部组按钮插槽：需要设置参数customGroup为true时生效</div>
+        <div class="box">
+          <div class="boxitem">
+            <fox_collapse>
+              <fox_collapse_item :position="'bottom'">
+                <template v-slot:header>
+                  <fox_slider :customGroup="true" :arrData="arrData_1">
+                    <template v-slot:groupBTN="{ handleGroupClick }">
+                      <div @click="handleGroupClick(idx)" v-for="(item, idx) in arrData_1" :key="idx">{{ idx+1 }}</div>
+                    </template>
+                  </fox_slider>
+                </template>
+                <p class="tal">Template:</p>
+                <pre><code class="language-xml line-numbers" v-text="codeText[7][0]"></code></pre>
+                <p class="tal">Script:</p>
+                <pre><code class="language-js line-numbers" v-text="codeText[7][1]"></code></pre>
+              </fox_collapse_item>
+            </fox_collapse>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="wrap">
         <div class="title_s m_b">参数列表</div>
       </div>
       <div class="divider"></div>
