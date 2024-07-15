@@ -6,7 +6,7 @@
     <div class="desc">轮播图用于展示多张图片或内容，通常用于网站首页、产品展示或广告推广等。</div>
     <div class="divider"></div>
 
-    <div class="flex-col">
+    <div class="flex-col box">
       <div class="wrap">
         <div class="title_s m_b">标准轮播图</div>
         <div class="desc m_b">非常普通的轮播图</div>

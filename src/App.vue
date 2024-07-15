@@ -157,24 +157,44 @@ body {
 }
 /* 公共样式 - 内容 */
 .flex {
-  display: flex; width: 100%;
+  display: flex;
 }
+
+.flex-rev {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .flex-col {
-  display: flex; width: 100%;
+  display: flex;
   flex-direction: column;
 }
-.flex-alc {align-items: center;}
-.flex-juc {justify-content: center;}
+
+.flex-col-rev {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.flex-alc {
+  align-items: center;
+}
+
+.flex-juc {
+  justify-content: center;
+}
+
 .flex-center {
-  display: flex; width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .flex-evenly {
-  display: flex; width: 100%;
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
+
 .flex-gap {
   gap: 15px;
 }

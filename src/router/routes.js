@@ -12,6 +12,12 @@ const routes = [
     label: '测试',
   },
   {
+    path: '/buttonView',
+    name: 'buttonView',
+    component: () => import('../views/buttonView.vue'),
+    label: '按钮',
+  },
+  {
     path: '/sliderView',
     name: 'sliderView',
     component: () => import('../views/sliderView.vue'),

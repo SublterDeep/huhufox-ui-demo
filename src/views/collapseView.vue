@@ -4,7 +4,8 @@
     <div class="title_s m_b">Collapse view</div>
     <div class="desc">折叠面板用于隐藏和显示大量内容，节省页面空间并改善用户体验，常用于FAQ、设置菜单和内容分类。</div>
     <div class="divider"></div>
-    <div class="flex-col">
+
+    <div class="flex-col box">
 
       <div class="wrap">
         <div class="title_s m_b">标准折叠面板</div>
@@ -195,6 +196,7 @@
         <div class="desc">1.增加插槽：包括折叠列表项文字插槽、折叠列表项图标插槽、底部展开按钮文字&图标插槽</div>
         <div class="desc">2.默认展开选项，外部控制展开函数，</div>
       </div>
+
     </div>
   </div>
 </template>
