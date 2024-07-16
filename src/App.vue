@@ -176,10 +176,12 @@ body {
 }
 
 .flex-alc {
+  display: flex;
   align-items: center;
 }
 
 .flex-juc {
+  display: flex;
   justify-content: center;
 }
 
@@ -196,6 +198,7 @@ body {
 }
 
 .flex-gap {
+  display: flex;
   gap: 15px;
 }
 .m_t {margin-top: 15px !important;}
@@ -210,6 +213,13 @@ body {
 }
 .divider_line {
   width: 100%; height: 1px; margin-top: 24.5px;margin-bottom: 24.5px; background-color: #DCDFE6;
+}
+/* 公共样式 - 样式 */
+.nsel {
+  user-select: none;
+}
+.nact {
+  pointer-events: none;
 }
 
 /* 滚动条样式 */
