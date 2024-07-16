@@ -2,7 +2,7 @@
   <div class="wrap">
 
     <div class="title">轮播图</div>
-    <div class="title_s m_b">fox_slider view</div>
+    <div class="title_s m_b">Slider view</div>
     <div class="desc">轮播图用于展示多张图片或内容，通常用于网站首页、产品展示或广告推广等。</div>
     <div class="divider"></div>
 
