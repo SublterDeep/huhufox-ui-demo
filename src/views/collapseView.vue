@@ -81,6 +81,31 @@
       <div class="divider"></div>
 
       <div class="wrap">
+        <div class="title_s m_b">内容自定义</div>
+        <div class="desc">按钮图标支持自定义开关</div>
+        <div class="desc">按钮文本支持自定义文本</div>
+        <div class="desc m_b">内容区域支持自定义锁定</div>
+        <fox_collapse>
+          <fox_collapse_item :position="'bottom'"  class="displayArea">
+            <template v-slot:header>
+              <!-- 展示内容 -->
+              <fox_collapse>
+                <fox_collapse_item :showIcon="false" :label="'关闭按钮图标'">按钮图标支持自定义开关</fox_collapse_item>
+                <fox_collapse_item :label="'按钮图标支持自定义开关'" :position="'bottom'" :bottomText="['自定义展开文本', '自定义关闭文本']">按钮文本支持自定义文本,传入格式为['展开文本', '关闭文本']的数组或任意字符串</fox_collapse_item>
+                <fox_collapse_item :label="'按钮文本支持自定义文本'" :position="'bottom'" :bottomText="'自定义文本'">按钮文本支持自定义文本,传入格式为['展开文本', '关闭文本']的数组或任意字符串</fox_collapse_item>
+                <fox_collapse_item :label="'锁定内容区域，禁止展开'" lockContent></fox_collapse_item>
+              </fox_collapse>
+            </template>
+            <!-- 代码放这 -->
+            <p class="tal">Template:</p>
+            <pre><code class="language-xml line-numbers" v-text="codeText[3]"></code></pre>
+
+          </fox_collapse_item>
+        </fox_collapse>
+      </div>
+      <div class="divider"></div>
+
+      <div class="wrap">
         <div class="title_s m_b">颜色自定义</div>
         <div class="desc m_b">边框颜色支持自定义颜色</div>
         <fox_collapse>
@@ -95,7 +120,7 @@
             </template>
             <!-- 代码放这 -->
             <p class="tal">Template:</p>
-            <pre><code class="language-xml line-numbers" v-text="codeText[3]"></code></pre>
+            <pre><code class="language-xml line-numbers" v-text="codeText[4]"></code></pre>
 
           </fox_collapse_item>
         </fox_collapse>
@@ -114,14 +139,13 @@
             </template>
             <!-- 代码放这 -->
             <p class="tal">Template:</p>
-            <pre><code class="language-xml line-numbers" v-text="codeText[4]"></code></pre>
+            <pre><code class="language-xml line-numbers" v-text="codeText[5]"></code></pre>
 
           </fox_collapse_item>
         </fox_collapse>
         <div class="divider"></div>
 
         <div class="desc m_b">展开图标鼠标悬浮色支持自定义颜色</div>
-      </div>
         <fox_collapse>
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
@@ -134,10 +158,11 @@
             </template>
             <!-- 代码放这 -->
             <p class="tal">Template:</p>
-            <pre><code class="language-xml line-numbers" v-text="codeText[5]"></code></pre>
+            <pre><code class="language-xml line-numbers" v-text="codeText[6]"></code></pre>
 
           </fox_collapse_item>
         </fox_collapse>
+      </div>
       <div class="divider"></div>
 
       <div class="wrap">
@@ -179,7 +204,49 @@
             </template>
             <!-- 代码放这 -->
             <p class="tal">Template:</p>
-            <pre><code class="language-xml line-numbers" v-text="codeText[6]"></code></pre>
+            <pre><code class="language-xml line-numbers" v-text="codeText[7]"></code></pre>
+
+          </fox_collapse_item>
+        </fox_collapse>
+      </div>
+      <div class="divider"></div>
+      
+      <div class="wrap">
+        <div class="title_s m_b">折叠面板插槽</div>
+        <div class="desc">标题插槽v-slot:header</div>
+        <div class="desc">按钮插槽v-slot:icon</div>
+        <div class="desc">底部展开按钮文字插槽v-slot:bottomText</div>
+        <div class="desc m_b">底部展开按钮插槽v-slot:bottom</div>
+        <fox_collapse>
+          <fox_collapse_item :position="'bottom'"  class="displayArea">
+            <template v-slot:header>
+              <!-- 展示内容 -->
+              <fox_collapse>
+                <fox_collapse_item>
+                  <template v-slot:header>
+                    <div style="width: 300px; line-height: 2; background-color: salmon; color: #fff;">使用标题插槽时，标签的label属性会失效</div>
+                  </template>
+                  <div>使用标题插槽时，标签的label属性会失效</div>
+                </fox_collapse_item>
+                <fox_collapse_item :label="'图标插槽'">
+                  <template v-slot:icon><div style="width: 50px;color: #fff;line-height: 2;text-align: center;background-color: plum;">icon</div></template>
+                  图标插槽
+                </fox_collapse_item>
+                <fox_collapse_item :label="'底部展开按钮插槽'" :position="'bottom'">
+                  <template v-slot:bottom>
+                    <div style="width: 150px;color: #fff;line-height: 2;text-align: center;background-color: seagreen;">展开/收缩按钮插槽</div>
+                  </template>
+                  底部展开按钮插槽只会在position属性设置为bottom时生效
+                </fox_collapse_item>
+                <fox_collapse_item :label="'底部展开按钮文字插槽'" :position="'bottom'">
+                  <template v-slot:bottomText>底部展开按钮文字插槽</template>
+                  底部展开按钮文字插槽
+                </fox_collapse_item>
+              </fox_collapse>
+            </template>
+            <!-- 代码放这 -->
+            <p class="tal">Template:</p>
+            <pre><code class="language-xml line-numbers" v-text="codeText[8]"></code></pre>
 
           </fox_collapse_item>
         </fox_collapse>
@@ -188,6 +255,7 @@
 
       <div class="wrap">
         <div class="title_s m_b">参数列表</div>
+        <paramList :dataList="params"></paramList>
       </div>
       <div class="divider"></div>
 
@@ -202,12 +270,13 @@
 </template>
 
 <script>
-import { codeBlock } from '@/assets/fakedata/collapseView';
+import { codeBlock, paramList } from '@/assets/fakedata/collapseView';
 export default {
   name: 'collapseView',
   data() {
     return {
       codeText: [],
+      params: [],
     }
   },
   updated() {
@@ -215,6 +284,7 @@ export default {
   },
   beforeMount() {
     this.codeText = _.cloneDeep(codeBlock);
+    this.params = _.cloneDeep(paramList);
   },
   mounted() {
     Prism.highlightAll();
@@ -225,5 +295,12 @@ export default {
 <style scoped lang="scss">
 .displayArea {
   background-color: #F1F1F1;
+}
+.flex-between>div{
+  flex: 1;
+  color: #666;
+}
+.desc>p {
+  line-height: 0.5;
 }
 </style>

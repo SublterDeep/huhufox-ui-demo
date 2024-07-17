@@ -9,10 +9,13 @@ import 'element-ui/lib/theme-chalk/index.css';
 import utils from './utils/publicMethods';
 import huhufoxUI from 'huhufox-ui';
 import Prism from "prismjs";
+import paramList from '@/components/paramList.vue';
 
 Vue.use(ElementUI);
 Vue.use(huhufoxUI);
 Vue.use(Prism);
+
+Vue.component('paramList', paramList)
 
 Vue.config.productionTip = false
 Vue.prototype.$ = $;

@@ -197,6 +197,12 @@ body {
   align-items: center;
 }
 
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flex-gap {
   display: flex;
   gap: 15px;
