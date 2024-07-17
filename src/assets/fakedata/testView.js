@@ -2050,7 +2050,7 @@ const arrYesterday = [
         "devName": "英特一洲中心医院店"
     }
 ];
-const arrParams = [
+const paramList = [
   {
     prop: '参数名称',
     name: '参数作用',
@@ -2076,11 +2076,6 @@ const arrParams = [
     type: [
       '参数类型1',
       '参数类型2',
-    ],
-    default: '默认值',
-    optional: [
-      '可选值1',
-      '可选值2',
     ],
     desc: [
       '补充说明1',

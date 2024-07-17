@@ -185,6 +185,7 @@
 
       <div class="wrap">
         <div class="title_s m_b">参数列表</div>
+        <paramList :dataList="params"></paramList>
       </div>
       <div class="divider"></div>
 
@@ -202,7 +203,7 @@
 </template>
 
 <script>
-import { codeBlock } from '@/assets/fakedata/sliderView';
+import { codeBlock, paramList } from '@/assets/fakedata/sliderView';
 export default {
   name: 'sliderView',
   data() {
@@ -213,6 +214,7 @@ export default {
       arrData_4: ['01', '02', '03'],
       arrData_5: ['01',],
       codeText: [],
+      params: [],
     }
   },
   updated() {
@@ -220,6 +222,7 @@ export default {
   },
   beforeMount() {
     this.codeText = _.cloneDeep(codeBlock);
+    this.params = _.cloneDeep(paramList);
   },
   mounted() {
     Prism.highlightAll();

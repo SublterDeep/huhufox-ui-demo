@@ -40,7 +40,7 @@
           <div class="flex-between">
             <div class="headerDiv">插槽名称</div>
             <div class="headerDiv">插槽位置</div>
-            <div class="headerDiv">参数类型</div>
+            <div class="headerDiv">插槽使用</div>
           </div>
         </template>
       </fox_collapse_item>

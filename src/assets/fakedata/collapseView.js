@@ -267,10 +267,6 @@ const paramList = [
     type: [
       'v-slot:header',
     ],
-    default: '-',
-    optional: [
-      '-',
-    ],
     desc: [
       '标题区域插槽，可自定义插入标题位置的元素',
     ],
@@ -283,10 +279,6 @@ const paramList = [
     type: [
       'v-slot:icon',
     ],
-    default: '-',
-    optional: [
-      '-',
-    ],
     desc: [
       '图标区域插槽，可自定义插入图标位置的元素',
     ],
@@ -298,10 +290,6 @@ const paramList = [
     name: '底部按钮插槽',
     type: [
       'v-slot:bottom',
-    ],
-    default: '-',
-    optional: [
-      '-',
     ],
     desc: [
       '底部按钮区域插槽，可自定义插入底部按钮位置的元素',
