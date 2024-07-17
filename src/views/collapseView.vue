@@ -246,6 +246,54 @@
         </fox_collapse>
       </div>
       <div class="divider"></div>
+      
+      <div class="wrap">
+        <div class="title_s m_b">默认展开折叠面板</div>
+        <div class="desc">默认展开参数可设置在折叠面板标签上，影响所有子项</div>
+        <div class="desc m_b">也可以单独为某个折叠列表项设置，会覆盖折叠面板设置的参数</div>
+        <div class="desc m_b">折叠面板参数为数组</div>
+        <fox_collapse>
+          <fox_collapse_item :position="'bottom'"  class="displayArea">
+            <template v-slot:header>
+              <!-- 展示内容 -->
+              <fox_collapse :expand="[1, 3]">
+                <fox_collapse_item :label="'文本1'">内容1</fox_collapse_item>
+                <fox_collapse_item :label="'文本2_默认展开'">内容2</fox_collapse_item>
+                <fox_collapse_item :label="'文本3'">内容3</fox_collapse_item>
+                <fox_collapse_item :label="'文本4_默认展开'">内容4</fox_collapse_item>
+                <fox_collapse_item :label="'文本5'">内容5</fox_collapse_item>
+              </fox_collapse>
+            </template>
+            <!-- 代码放这 -->
+            <p class="tal">Template:</p>
+            <pre><code class="language-xml line-numbers" v-text="codeText[9]"></code></pre>
+
+          </fox_collapse_item>
+        </fox_collapse>
+        <div class="divider"></div>
+
+        <div class="desc">折叠面板参数为布尔值</div>
+        <div class="desc m_b">折叠面板项单独设置参数为布尔值</div>
+        <fox_collapse>
+          <fox_collapse_item :position="'bottom'"  class="displayArea">
+            <template v-slot:header>
+              <!-- 展示内容 -->
+              <fox_collapse :expand="true">
+                <fox_collapse_item :label="'文本1'">内容1</fox_collapse_item>
+                <fox_collapse_item :label="'文本2_默认关闭'" :expand="false">内容2</fox_collapse_item>
+                <fox_collapse_item :label="'文本3'">内容3</fox_collapse_item>
+                <fox_collapse_item :label="'文本4_默认关闭'" :expand="false">内容4</fox_collapse_item>
+                <fox_collapse_item :label="'文本5'">内容5</fox_collapse_item>
+              </fox_collapse>
+            </template>
+            <!-- 代码放这 -->
+            <p class="tal">Template:</p>
+            <pre><code class="language-xml line-numbers" v-text="codeText[10]"></code></pre>
+
+          </fox_collapse_item>
+        </fox_collapse>
+      </div>
+      <div class="divider"></div>
 
       <div class="wrap">
         <div class="title_s m_b">参数列表</div>

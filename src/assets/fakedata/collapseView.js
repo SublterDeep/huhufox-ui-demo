@@ -103,6 +103,22 @@ const codeBlock = [
   </fox_collapse_item>
 </fox_collapse>`,
 
+`<fox_collapse :expand="[1, 3]">
+  <fox_collapse_item :label="'文本1'">内容1</fox_collapse_item>
+  <fox_collapse_item :label="'文本2_默认展开'">内容2</fox_collapse_item>
+  <fox_collapse_item :label="'文本3'">内容3</fox_collapse_item>
+  <fox_collapse_item :label="'文本4_默认展开'">内容4</fox_collapse_item>
+  <fox_collapse_item :label="'文本5'">内容5</fox_collapse_item>
+</fox_collapse>`,
+
+`<fox_collapse :expand="true">
+  <fox_collapse_item :label="'文本1'">内容1</fox_collapse_item>
+  <fox_collapse_item :label="'文本2_默认关闭'" :expand="false">内容2</fox_collapse_item>
+  <fox_collapse_item :label="'文本3'">内容3</fox_collapse_item>
+  <fox_collapse_item :label="'文本4_默认关闭'" :expand="false">内容4</fox_collapse_item>
+  <fox_collapse_item :label="'文本5'">内容5</fox_collapse_item>
+</fox_collapse>`,
+
 ];
 
 const paramList = [
@@ -257,6 +273,43 @@ const paramList = [
     desc: [
       '锁定内容区，打开后将无法展开折叠面板列表项',
       '这样就可以当成列表来用',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: 'expand',
+    name: '默认展开(为折叠面板组件设置时)',
+    type: [
+      'Array',
+      'Boolean',
+    ],
+    default: 'false',
+    optional: [
+      '[(所有需要默认展开的列表项下标)]',
+      'true',
+      'false',
+    ],
+    desc: [
+      '参数为布尔值设置为true或false时，所有折叠面板项都受到影响',
+      '参数为数组时，对应下标的折叠面板项会默认展开',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: 'expand',
+    name: '默认展开(为折叠面板项组件设置时)',
+    type: [
+      'Boolean',
+    ],
+    default: 'false',
+    optional: [
+      'true',
+      'false',
+    ],
+    desc: [
+      '优先计算折叠面板项单独设置的默认展开参数',
     ],
     tag: 'params',
   },
