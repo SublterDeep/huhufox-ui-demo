@@ -39,10 +39,8 @@
         <template #header>
           <div class="flex-between">
             <div class="headerDiv">插槽名称</div>
-            <div class="headerDiv">插槽作用</div>
+            <div class="headerDiv">插槽位置</div>
             <div class="headerDiv">参数类型</div>
-            <div class="headerDiv">默认值</div>
-            <div class="headerDiv">可选值</div>
           </div>
         </template>
       </fox_collapse_item>
@@ -52,8 +50,6 @@
             <div>{{ item.prop }}</div>
             <div>{{ item.name }}</div>
             <div>{{ item.type.join(',') }}</div>
-            <div>{{ item.default }}</div>
-            <div>{{ item.optional.join(',') }}</div>
           </div>
         </template>
         <div class="desc">
@@ -141,6 +137,7 @@ export default {
 
 .desc>p {
   line-height: 0.5;
+  cursor: default;
 }
 
 .headerDiv {

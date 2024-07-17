@@ -40,13 +40,7 @@
               <fox_collapse>
                 <fox_collapse_item :label="'图标在左侧 position: left'" :position="'left'">图标在左侧 position: left</fox_collapse_item>
                 <fox_collapse_item :label="'图标在右侧 position: right'" :position="'right'">图标在右侧 position: right</fox_collapse_item>
-                <fox_collapse_item :label="'图标在下方 position: bottom'" :position="'bottom'">
-                  <template v-slot:header>
-                    <div class="tal">图标在下方 position: bottom</div>
-                  </template>
-                  <p>图标在下方 position: bottom</p>
-                  <p>当图标在下方时，label标签不生效</p>
-                </fox_collapse_item>
+                <fox_collapse_item :label="'图标在下方 position: bottom'" :position="'bottom'">图标在下方 position: bottom</fox_collapse_item>
               </fox_collapse>
             </template>
             <!-- 代码放这 -->
@@ -262,7 +256,7 @@
       <div class="wrap">
         <div class="title_s m_b">更新计划：</div>
         <div class="desc">1.增加插槽：包括折叠列表项文字插槽、折叠列表项图标插槽、底部展开按钮文字&图标插槽</div>
-        <div class="desc">2.默认展开选项，外部控制展开函数，</div>
+        <div class="desc">2.默认展开选项，外部控制展开函数，增加emit反馈函数</div>
       </div>
 
     </div>

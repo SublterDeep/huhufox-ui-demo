@@ -2050,4 +2050,61 @@ const arrYesterday = [
         "devName": "英特一洲中心医院店"
     }
 ];
+const arrParams = [
+  {
+    prop: '参数名称',
+    name: '参数作用',
+    type: [
+      '参数类型1',
+      '参数类型2',
+    ],
+    default: '默认值',
+    optional: [
+      '可选值1',
+      '可选值2',
+    ],
+    desc: [
+      '补充说明1',
+      '补充说明2',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: '插槽名称',
+    name: '插槽位置',
+    type: [
+      '参数类型1',
+      '参数类型2',
+    ],
+    default: '默认值',
+    optional: [
+      '可选值1',
+      '可选值2',
+    ],
+    desc: [
+      '补充说明1',
+      '补充说明2',
+    ],
+    tag: 'slots',
+  },
+
+  {
+    prop: '函数名称',
+    name: '函数作用',
+    params: [
+      '函数参数值列表1',
+      '函数参数值列表2',
+    ],
+    returns: [
+      '函数返回值列表1',
+      '函数返回值列表2',
+    ],
+    desc: [
+      '补充说明1',
+      '补充说明2',
+    ],
+    tag: 'function',
+  },
+]
 export { arrToday, arrYesterday }

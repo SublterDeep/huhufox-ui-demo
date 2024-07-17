@@ -9,13 +9,7 @@ const codeBlock = [
 `<fox_collapse>
   <fox_collapse_item :label="'图标在左侧 position: left'" :position="'left'">图标在左侧 position: left</fox_collapse_item>
   <fox_collapse_item :label="'图标在右侧 position: right'" :position="'right'">图标在右侧 position: right</fox_collapse_item>
-  <fox_collapse_item :label="'图标在下方 position: bottom'" :position="'bottom'">
-    <template v-slot:header>
-      <div class="tal">图标在下方 position: bottom</div>
-    </template>
-    <p>图标在下方 position: bottom</p>
-    <p>当图标在下方时，label标签不生效</p>
-  </fox_collapse_item>
+  <fox_collapse_item :label="'图标在下方 position: bottom'" :position="'bottom'">图标在下方 position: bottom</fox_collapse_item>
 </fox_collapse>`,
 
 `<fox_collapse accordion>
@@ -113,6 +107,40 @@ const codeBlock = [
 
 const paramList = [
   {
+    prop: 'label',
+    name: '标题文本',
+    type: [
+      'String',
+    ],
+    default: '-',
+    optional: [
+      '-',
+    ],
+    desc: [
+      '列表项标题文本',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: 'position',
+    name: '图标位置布局',
+    type: [
+      'String',
+    ],
+    default: 'right',
+    optional: [
+      'left',
+      'bottom',
+    ],
+    desc: [
+      '设置为left或right以调整按钮图标与文本的相对位置',
+      '设置为bottom时，展开按钮移动到列表项下方',
+    ],
+    tag: 'params',
+  },
+
+  {
     prop: 'accordion',
     name: '手风琴效果',
     type: [
@@ -130,58 +158,168 @@ const paramList = [
   },
 
   {
-    prop: '参数名称',
-    name: '参数作用',
+    prop: 'borderColor',
+    name: '边框颜色',
     type: [
-      '参数类型1',
-      '参数类型2',
+      'String',
     ],
-    default: '默认值',
+    default: '#DCDFE6',
     optional: [
-      '可选值1',
-      '可选值2',
+      '任意颜色字符串',
     ],
     desc: [
-      '补充说明1',
-      '补充说明2',
+      '设置边框颜色(不太好用建议别用)',
+      '可以设置在折叠面板上，效果应用到所有子项',
+      '也可以单独设置在子项上，效果会覆盖父折叠面板设置的颜色',
     ],
     tag: 'params',
   },
 
   {
-    prop: '参数名称',
-    name: '参数作用',
+    prop: 'hoverColor',
+    name: '鼠标悬浮按钮颜色',
     type: [
-      '参数类型1',
-      '参数类型2',
+      'String',
     ],
-    default: '默认值',
+    default: '#409EFF',
     optional: [
-      '可选值1',
-      '可选值2',
+      '任意颜色字符串',
     ],
     desc: [
-      '补充说明1',
-      '补充说明2',
+      '鼠标悬浮在展开/关闭按钮时按钮颜色',
     ],
     tag: 'params',
   },
 
   {
-    prop: '参数名称',
-    name: '参数作用',
+    prop: 'contentColor',
+    name: '内容区域颜色',
     type: [
-      '参数类型1',
-      '参数类型2',
+      'String',
     ],
-    default: '默认值',
+    default: '#FAFAFA',
     optional: [
-      '可选值1',
-      '可选值2',
+      '任意颜色字符串',
     ],
     desc: [
-      '补充说明1',
-      '补充说明2',
+      '内容区域颜色',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: 'bottomText',
+    name: '底部按钮文本',
+    type: [
+      'Array',
+      'String',
+    ],
+    default: "['展开', '关闭']",
+    optional: [
+      '任意文本字符串',
+      "['自定义展开文本', '自定义关闭文本']",
+      "['自定义文本']",
+    ],
+    desc: [
+      '当position属性设置为bottom后，footer中的文本',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: 'showIcon',
+    name: '是否显示图标',
+    type: [
+      'Boolean',
+    ],
+    default: 'true',
+    optional: [
+      'true',
+      'false',
+    ],
+    desc: [
+      '是否显示展开/关闭按钮旁的图标',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: 'lockContent',
+    name: '锁定内容区',
+    type: [
+      'Boolean',
+    ],
+    default: 'false',
+    optional: [
+      'true',
+      'false',
+    ],
+    desc: [
+      '锁定内容区，打开后将无法展开折叠面板列表项',
+      '这样就可以当成列表来用',
+    ],
+    tag: 'params',
+  },
+
+  {
+    prop: 'header',
+    name: '标题插槽',
+    type: [
+      'v-slot:header',
+    ],
+    default: '-',
+    optional: [
+      '-',
+    ],
+    desc: [
+      '标题区域插槽，可自定义插入标题位置的元素',
+    ],
+    tag: 'slots',
+  },
+
+  {
+    prop: 'icon',
+    name: '图标插槽',
+    type: [
+      'v-slot:icon',
+    ],
+    default: '-',
+    optional: [
+      '-',
+    ],
+    desc: [
+      '图标区域插槽，可自定义插入图标位置的元素',
+    ],
+    tag: 'slots',
+  },
+
+  {
+    prop: 'bottom',
+    name: '底部按钮插槽',
+    type: [
+      'v-slot:bottom',
+    ],
+    default: '-',
+    optional: [
+      '-',
+    ],
+    desc: [
+      '底部按钮区域插槽，可自定义插入底部按钮位置的元素',
+      '只在position属性设置为bottom时生效',
+    ],
+    tag: 'slots',
+  },
+
+  {
+    prop: 'bottomText',
+    name: '底部按钮文本插槽',
+    type: [
+      'v-slot:bottomText',
+    ],
+    desc: [
+      '底部按钮文本区域插槽，可自定义插入底部按钮文本位置的元素',
+      '只在position属性设置为bottom时生效',
+      '区别于bottom插槽，这个插槽只改变底部按钮的文字区域内容',
     ],
     tag: 'slots',
   },
