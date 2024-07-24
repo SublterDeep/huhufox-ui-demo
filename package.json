@@ -4,12 +4,13 @@
   "private": false,
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "update": "npm i huhufox-ui --save"
   },
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.14",
-    "huhufox-ui": "^0.1.33",
+    "huhufox-ui": "^0.1.53",
     "jquery": "^3.7.1",
     "lodash": "^4.17.21",
     "node-sass": "^9.0.0",

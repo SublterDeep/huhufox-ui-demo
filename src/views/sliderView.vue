@@ -12,7 +12,7 @@
         <div class="desc m_b">非常普通的轮播图</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider :arrData="arrData_1" />
@@ -34,7 +34,7 @@
         <div class="desc m_b">关闭自动轮播；仅在鼠标悬浮时显示箭头按钮；带有自定义按钮样式；关闭鼠标滑动控制的轮播图</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider :mouseSwipe="false" :autoScroll="false" :alwaysShowArrow="false" :arrData="arrData_2" :btnStyle="{arrowColor: '#f60', arrowColor_hover: 'black', groupColor_active: 'red'}" />
@@ -56,7 +56,7 @@
         <div class="desc m_b">带有圆角，隐藏箭头按钮的轮播图</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider :arrData="arrData_3" :borderRadius="'15px'" :showArrow="false" />
@@ -78,7 +78,7 @@
         <div class="desc m_b">自定义滚动过渡动画持续时间，自定义轮播图组件阴影的轮播图</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider :arrData="arrData_4" :transitionTime="0.15" style="box-shadow: 20px 20px 20px" />
@@ -100,7 +100,7 @@
         <div class="desc m_b">只有一项数据的轮播图</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider :arrData="arrData_5" />
@@ -122,7 +122,7 @@
         <div class="desc m_b">记得携带数据，否则会显示成这样</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider  />
@@ -142,7 +142,7 @@
         <div class="desc m_b">左右箭头插槽</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider :arrData="arrData_1">
@@ -163,7 +163,7 @@
         <div class="desc m_b">底部组按钮插槽：需要设置参数customGroup为true时生效</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse>
+            <fox_collapse :sticky="true">
               <fox_collapse_item :position="'bottom'">
                 <template v-slot:header>
                   <fox_slider :customGroup="true" :arrData="arrData_1">
@@ -240,10 +240,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.boxitem {
-  width: 70%;
-}
 pre {
   text-align: left;
+}
+.displayArea {
+  background-color: #F1F1F1;
 }
 </style>

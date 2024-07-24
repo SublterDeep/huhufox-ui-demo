@@ -11,7 +11,7 @@
         <div class="desc m_b">亮色模式/深色模式的按钮</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse :bgColor="'#ccc'">
+            <fox_collapse :bgColor="'#ccc'" :sticky="true">
               <fox_collapse_item :position="'bottom'" class="displayArea">
                 <template v-slot:header>
                   <div class="flex flex-center flex-gap">
@@ -36,7 +36,7 @@
         <div class="desc m_b">各种大小的按钮</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse :bgColor="'#ccc'">
+            <fox_collapse :bgColor="'#ccc'" :sticky="true">
               <fox_collapse_item :position="'bottom'" class="displayArea">
                 <template v-slot:header>
                   <div class="flex flex-center flex-gap">
@@ -59,7 +59,7 @@
         <div class="desc m_b">自定义圆角、主题颜色、文本颜色、背景颜色、圆角边框的按钮</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse :bgColor="'#ccc'">
+            <fox_collapse :bgColor="'#ccc'" :sticky="true">
               <fox_collapse_item :position="'bottom'" class="displayArea">
                 <template v-slot:header>
                   <div class="flex flex-center flex-gap">
@@ -83,7 +83,7 @@
         <div class="desc m_b">注意：<b>当使用完全自定义按钮内容插槽customInner时，label属性、icon插槽、label插槽均失效</b></div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse :bgColor="'#ccc'">
+            <fox_collapse :bgColor="'#ccc'" :sticky="true">
               <fox_collapse_item :position="'bottom'" class="displayArea">
                 <template v-slot:header>
                   <div class="flex flex-center flex-gap">
@@ -116,7 +116,7 @@
         <div class="desc">可自定义文字与图标的相对位置和间距</div>
         <div class="box">
           <div class="boxitem">
-            <fox_collapse :bgColor="'#ccc'">
+            <fox_collapse :bgColor="'#ccc'" :sticky="true">
               <fox_collapse_item :position="'bottom'" class="displayArea">
                 <template v-slot:header>
                   <div class="flex flex-center flex-gap">
