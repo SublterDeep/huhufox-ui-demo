@@ -306,8 +306,8 @@
               <!-- 展示内容 -->
               <fox_collapse :sticky="true">
                 <fox_collapse_item :label="'postion为其他值时不生效'" :position="'left'">只对postion设置为bottom的折叠列表项footer生效</fox_collapse_item>
-                <fox_collapse_item :label="'我跟随父折叠面板设定，默认开启吸底效果'" :position="'bottom'">
-                  <div style="padding: 300px 0;">我跟随父折叠面板设定，默认开启吸底效果</div>
+                <fox_collapse_item :label="'我跟随父折叠面板设定开启吸底效果'" :position="'bottom'">
+                  <div style="padding: 300px 0;">我跟随父折叠面板设定开启吸底效果</div>
                 </fox_collapse_item>
                 <fox_collapse_item :label="'我单独设定了吸底效果关闭'" :position="'bottom'">
                   <div style="padding: 300px 0;">我单独设定了吸底效果关闭</div>

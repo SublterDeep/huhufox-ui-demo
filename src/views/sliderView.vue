@@ -138,7 +138,7 @@
 
       <div class="wrap">
         <div class="title_s m_b">使用插槽的轮播图</div>
-        <div class="desc m_b">提供更自由的样式设计。</div>
+        <div class="desc">提供更自由的样式设计。</div>
         <div class="desc m_b">左右箭头插槽</div>
         <div class="box">
           <div class="boxitem">

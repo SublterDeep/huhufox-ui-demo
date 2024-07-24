@@ -113,7 +113,7 @@
 
       <div class="wrap">
         <div class="title_s m_b">按钮文字与图标</div>
-        <div class="desc">可自定义文字与图标的相对位置和间距</div>
+        <div class="desc m_b">可自定义文字与图标的相对位置和间距</div>
         <div class="box">
           <div class="boxitem">
             <fox_collapse :bgColor="'#ccc'" :sticky="true">

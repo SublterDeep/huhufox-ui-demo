@@ -12,6 +12,12 @@ const routes = [
     label: '测试',
   },
   {
+    path: '/publicView',
+    name: 'publicView',
+    component: () => import('../views/publicView.vue'),
+    label: '全局声明',
+  },
+  {
     path: '/buttonView',
     name: 'buttonView',
     component: () => import('../views/buttonView.vue'),
