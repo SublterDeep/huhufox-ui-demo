@@ -22,7 +22,7 @@
     </section>
 
     <!-- 回到顶部 -->
-    <section id="toTop" @click="handleToTop">toTop</section>
+    <section id="toTop" @click="handleToTop">Top</section>
 
   </div>
 </template>
@@ -91,7 +91,7 @@ body {
   color: #2c3e50;
   height: 100%;
   display: flex;
-  padding-left: 10%;
+  padding-left: 5%;
 }
 
 pre {
@@ -123,11 +123,11 @@ pre {
 }
 
 #leftWrap {
-  width: 15%;
+  width: 12%;
   height: 100%;
   box-sizing: border-box;
   padding: 2% 0;
-  margin-right: 100px;
+  margin-right: 5%;
   overflow: hidden;
 
   #leftWrapContainer {
@@ -170,27 +170,27 @@ pre {
   padding: 2% 0;
   overflow: auto;
   box-sizing: border-box;
-
+  padding-right: 15%;
   .mainWrapContainer {
     width: 100%;
   }
 }
 
 #toTop {
+  width: 5vh;
+  height: 5vh;
   position: fixed;
   right: 2%;
   bottom: 12%;
   z-index: 10;
   cursor: pointer;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
   border: 1px solid #DBB6EE;
   transition: .2s;
   background-color: #fdfdfd;
   text-align: center;
-  line-height: 40px;
-  font-size: 12px;
+  line-height: 5vh;
+  font-size: 1.5vh;
   color: #DBB6EE;
   user-select: none;
   opacity: .6;
