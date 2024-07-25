@@ -20,9 +20,9 @@
           <div class="flex-between">
             <div>{{ item.prop }}</div>
             <div>{{ item.name }}</div>
-            <div>{{ item.type.join(',') }}</div>
-            <div>{{ item.default }}</div>
-            <div>{{ item.optional.join(',') }}</div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.type" :key="idxTag">{{ itemTag }}</div></div>
+            <div><pre>{{ item.default }}</pre></div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.optional" :key="idxTag">{{ itemTag }}</div></div>
           </div>
         </template>
         <div class="desc">
@@ -49,7 +49,7 @@
           <div class="flex-between">
             <div>{{ item.prop }}</div>
             <div>{{ item.name }}</div>
-            <div>{{ item.type.join(',') }}</div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.type" :key="idxTag">{{ itemTag }}</div></div>
           </div>
         </template>
         <div class="desc">
@@ -67,8 +67,8 @@
           <div class="flex-between">
             <div class="headerDiv">函数名称</div>
             <div class="headerDiv">函数作用</div>
-            <div class="headerDiv">函数参数值列表</div>
-            <div class="headerDiv">函数返回值列表</div>
+            <div class="headerDiv">参数值</div>
+            <div class="headerDiv">返回值</div>
           </div>
         </template>
       </fox_collapse_item>
@@ -77,8 +77,38 @@
           <div class="flex-between">
             <div>{{ item.prop }}</div>
             <div>{{ item.name }}</div>
-            <div>{{ item.params.join(',') }}</div>
-            <div>{{ item.returns.join(',') }}</div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.params" :key="idxTag">{{ itemTag }}</div></div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.returns" :key="idxTag">{{ itemTag }}</div></div>
+          </div>
+        </template>
+        <div class="desc">
+          <p v-for="(innerItem, innerIdx) in item.desc" :key="innerIdx">{{ innerItem }}</p>
+        </div>
+      </fox_collapse_item>
+    </fox_collapse>
+
+    <!-- config -->
+    <div v-if="configList.length!==0" class="desc tal m_b">配置列表 config</div>
+    <fox_collapse v-if="configList.length!==0" :showIcon="false">
+      <fox_collapse_item lockContent style="background-color: #F1F1F1">
+        <template #header>
+          <div class="flex-between">
+            <div class="headerDiv">配置名称</div>
+            <div class="headerDiv">配置作用</div>
+            <div class="headerDiv">配置类型</div>
+            <div class="headerDiv">参数值</div>
+            <div class="headerDiv">返回值</div>
+          </div>
+        </template>
+      </fox_collapse_item>
+      <fox_collapse_item v-for="(item, idx) in configList" :key="idx">
+        <template #header>
+          <div class="flex-between">
+            <div>{{ item.prop }}</div>
+            <div>{{ item.name }}</div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.type" :key="idxTag">{{ itemTag }}</div></div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.params" :key="idxTag">{{ itemTag }}</div></div>
+            <div><div class="divTag" v-for="(itemTag, idxTag) in item.returns" :key="idxTag">{{ itemTag }}</div></div>
           </div>
         </template>
         <div class="desc">
@@ -91,7 +121,7 @@
 
 <script>
 export default {
-  name: 'collapseView',
+  name: 'paramList',
   props: {
     dataList: {},
   },
@@ -100,7 +130,7 @@ export default {
       paramsList: [],
       slotsList: [],
       functionList: [],
-      pList: [],
+      configList: [],
     }
   },
   beforeMount() {
@@ -113,9 +143,7 @@ export default {
       this.paramsList = this.dataList.filter((elm) => { return elm.tag === 'params' });
       this.slotsList = this.dataList.filter((elm) => { return elm.tag === 'slots' });
       this.functionList = this.dataList.filter((elm) => { return elm.tag === 'function' });
-      // console.log(this.paramsList);
-      // console.log(this.slotsList);
-      // console.log(this.functionList);
+      this.configList = this.dataList.filter((elm) => { return elm.tag === 'config' });
     },
   },
 }
@@ -142,5 +170,9 @@ export default {
 
 .headerDiv {
   color: #333;
+}
+
+.divTag {
+  /* padding: 2px 5px; */
 }
 </style>

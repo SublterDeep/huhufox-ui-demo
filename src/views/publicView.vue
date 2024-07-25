@@ -3,7 +3,7 @@
     <div class="title">全局声明</div>
     <div class="title_s m_b">全局变量、函数和原型链对象</div>
     <div class="desc">huhufoxUI 所声明的一些全局字段，需要依赖这些才能正常使用功能。</div>
-    <div class="desc">谨慎的使用这些对象，尽量避免修改。</div>
+    <div class="desc"><b>谨慎的使用这些对象，尽量避免修改。</b></div>
     <div class="divider"></div>
 
     <div class="flex-col box">
@@ -18,7 +18,7 @@
       <div class="wrap">
         <div class="title_s m_b">$foxEventBus</div>
         <div class="desc">挂载在Vue原型上的事件管线对象实例，负责维持huhufoxUI组件间的数据通信</div>
-        <div class="desc m_b">请勿使用此对象或向其注入数据，以免影响huhufoxUI组件的功能</div>
+        <div class="desc m_b"><b>请勿使用此对象或向其注入数据</b>，以免影响huhufoxUI组件的功能</div>
       </div>
       <div class="divider"></div>
 

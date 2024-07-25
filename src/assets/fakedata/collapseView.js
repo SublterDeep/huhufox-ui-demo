@@ -125,7 +125,7 @@ fox_collapse_item>
   <fox_collapse_item :label="'我跟随父折叠面板设定开启吸底效果'" :position="'bottom'">
     <div style="padding: 300px 0;">我跟随父折叠面板设定开启吸底效果</div>
   </fox_collapse_item>
-  <fox_collapse_item :label="'我单独设定了吸底效果关闭'" :position="'bottom'">
+  <fox_collapse_item :sticky="false" :label="'我单独设定了吸底效果关闭'" :position="'bottom'">
     <div style="padding: 300px 0;">我单独设定了吸底效果关闭</div>
   </fox_collapse_item>
   <fox_collapse_item :label="'可嵌套，但容易出bug所以不建议'" :position="'bottom'">
@@ -321,18 +321,20 @@ const paramList = [
   },
 
   {
-    prop: 'expand',
-    name: '默认展开(为折叠面板项组件设置时)',
+    prop: 'sticky',
+    name: '吸底效果',
     type: [
+      'Array',
       'Boolean',
     ],
     default: 'false',
     optional: [
+      '[(所有需要吸底效果的列表项下标)]',
       'true',
       'false',
     ],
     desc: [
-      '优先计算折叠面板项单独设置的默认展开参数',
+      '优先计算折叠面板项单独设置的吸底效果参数',
     ],
     tag: 'params',
   },
@@ -389,21 +391,45 @@ const paramList = [
   },
 
   {
-    prop: '函数名称',
-    name: '函数作用',
+    prop: '$foxConfig.scrollContainer',
+    name: '设置全局折叠面板监听的滚动容器',
+    type: [
+      'field',
+    ],
     params: [
-      '函数参数值列表1',
-      '函数参数值列表2',
+      'DOM元素对象',
     ],
     returns: [
-      '函数返回值列表1',
-      '函数返回值列表2',
+      'null',
     ],
     desc: [
-      '补充说明1',
-      '补充说明2',
+      '默认监听DOM对象为document',
+      '设置全局对象后，所有未单独设置监听滚动容器的折叠面板都将监听此DOM对象的滚动事件',
+      '同时存在全局对象和单独设置的对象时，监听单独设置的对象',
+      '使用方式：this.$foxConfig.scrollContainer = 你的滚动容器DOM对象',
     ],
-    tag: 'function',
+    tag: 'config',
+  },
+
+  {
+    prop: 'setScrollContainer()',
+    name: '设置单独折叠面板监听的滚动容器',
+    type: [
+      'function',
+    ],
+    params: [
+      'DOM元素对象 - 必填',
+    ],
+    returns: [
+      'null',
+    ],
+    desc: [
+      '默认监听DOM对象为document',
+      '设置全局对象后，所有未单独设置监听滚动容器的折叠面板都将监听此DOM对象的滚动事件',
+      '同时存在全局对象和单独设置的对象时，监听单独设置的对象',
+      '使用方式：你的折叠面板DOM对象.setScrollContainer(你的滚动容器DOM对象)',
+    ],
+    tag: 'config',
   },
   
 ];

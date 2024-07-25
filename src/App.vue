@@ -8,8 +8,9 @@
       </div>
       <div id="leftWrapContainer">
         <div @click="goPage(item, idx)" v-for="(item, idx) in arrPage" :key="idx"
-          :class="`leftWrapContainer_item ${idx === numNowSelect ? 'leftWrapContainer_item_active' : ''}`"><span>{{ item.label
-            }}</span></div>
+          :class="`leftWrapContainer_item ${idx === numNowSelect ? 'leftWrapContainer_item_active' : ''}`"><span>{{
+            item.label
+          }}</span></div>
       </div>
     </section>
 
@@ -19,6 +20,10 @@
         <router-view />
       </div>
     </section>
+
+    <!-- 回到顶部 -->
+    <section id="toTop" @click="handleToTop">toTop</section>
+
   </div>
 </template>
 
@@ -41,8 +46,25 @@ export default {
   },
   methods: {
     goPage(pageData, index) {
-      this.numNowSelect = index;
-      this.$router.push(pageData.name);
+      // 离开某页前保存滚动条位置
+      this.$store.commit('setPageScroll', { page: this.arrPage[this.numNowSelect].name, progress: this.$refs.mainWrap.scrollTop});
+      setTimeout(() => {
+        this.numNowSelect = index;
+        // 进入某页后调整滚动条位置
+        let pageScroll = this.$store.getters.getPageScroll;
+        let pos = 0;
+        for (let i = 0; i < pageScroll.length; i++) {
+          if (pageScroll[i].page === pageData.name) {
+            pos = pageScroll[i].progress;
+            break;
+          }
+        }
+        this.$router.push(pageData.name);
+        this.$refs.mainWrap.scrollTo({ top: pos });
+      }, 0);
+    },
+    handleToTop() {
+      this.$refs.mainWrap.scrollTo({ top: 0, behavior: "smooth" });
     },
   },
 }
@@ -70,6 +92,13 @@ body {
   height: 100%;
   display: flex;
   padding-left: 10%;
+}
+
+pre {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
 }
 
 /* 公共样式 - 容器 */
@@ -145,6 +174,41 @@ body {
   .mainWrapContainer {
     width: 100%;
   }
+}
+
+#toTop {
+  position: fixed;
+  right: 2%;
+  bottom: 12%;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #DBB6EE;
+  transition: .2s;
+  background-color: #fdfdfd;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+  color: #DBB6EE;
+  user-select: none;
+  opacity: .6;
+}
+
+#toTop:hover {
+  background-color: #DBB6EE;
+  border-color: #DBB6EE;
+  color: #fff;
+  opacity: 1;
+}
+
+#toTop:active {
+  background-color: #B39EDB;
+  border-color: #B39EDB;
+  color: #fff;
+  transform: scale(0.97);
+  opacity: 1;
 }
 
 /* 公共样式 - 文字 */

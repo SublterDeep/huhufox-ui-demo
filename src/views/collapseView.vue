@@ -309,7 +309,7 @@
                 <fox_collapse_item :label="'我跟随父折叠面板设定开启吸底效果'" :position="'bottom'">
                   <div style="padding: 300px 0;">我跟随父折叠面板设定开启吸底效果</div>
                 </fox_collapse_item>
-                <fox_collapse_item :label="'我单独设定了吸底效果关闭'" :position="'bottom'">
+                <fox_collapse_item :sticky="false" :label="'我单独设定了吸底效果关闭'" :position="'bottom'">
                   <div style="padding: 300px 0;">我单独设定了吸底效果关闭</div>
                 </fox_collapse_item>
                 <fox_collapse_item :label="'可嵌套，但容易出bug所以不建议'" :position="'bottom'">
@@ -344,8 +344,8 @@
 
       <div class="wrap">
         <div class="title_s m_b">更新计划：</div>
-        <div class="desc">1.增加插槽：包括折叠列表项文字插槽、折叠列表项图标插槽、底部展开按钮文字&图标插槽</div>
-        <div class="desc">2.默认展开选项，外部控制展开函数，增加emit反馈函数</div>
+        <div class="desc">1.<del>增加插槽：包括折叠列表项文字插槽、折叠列表项图标插槽、底部展开按钮文字&图标插槽</del></div>
+        <div class="desc">2.<del>默认展开选项</del>，外部控制展开函数，增加emit反馈函数</div>
       </div>
 
     </div>

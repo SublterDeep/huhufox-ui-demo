@@ -2074,8 +2074,7 @@ const paramList = [
     prop: '插槽名称',
     name: '插槽位置',
     type: [
-      '参数类型1',
-      '参数类型2',
+      '插槽使用',
     ],
     desc: [
       '补充说明1',
@@ -2100,6 +2099,28 @@ const paramList = [
       '补充说明2',
     ],
     tag: 'function',
+  },
+
+  {
+    prop: '配置名称',
+    name: '配置作用',
+    type: [
+      '配置类型1',
+      '配置类型2',
+    ],
+    params: [
+      '函数参数值列表1',
+      '函数参数值列表2',
+    ],
+    returns: [
+      '函数返回值列表1',
+      '函数返回值列表2',
+    ],
+    desc: [
+      '补充说明1',
+      '补充说明2',
+    ],
+    tag: 'config',
   },
 ]
 export { arrToday, arrYesterday }
