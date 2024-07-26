@@ -252,6 +252,88 @@ const paramList = [
     ],
     tag: 'params',
   },
+  {
+    prop: 'longPress',
+    name: '长按按钮功能开关',
+    type: [
+      'Boolean',
+    ],
+    default: 'false',
+    optional: [
+      'true',
+      'false',
+    ],
+    desc: [
+      '长按按钮功能开关',
+    ],
+    tag: 'params',
+  },
+  {
+    prop: 'longPressTime',
+    name: '长按事件触发所需时长',
+    type: [
+      'Number',
+      'String',
+    ],
+    default: '1000',
+    optional: [
+      '-',
+    ],
+    desc: [
+      '长按事件触发所需时长',
+      '需要长按功能设置为打开时生效',
+    ],
+    tag: 'params',
+  },
+  {
+    prop: 'longPressEvent',
+    name: '长按事件触发的回调函数',
+    type: [
+      'Function',
+    ],
+    default: '-',
+    optional: [
+      '待执行的函数',
+    ],
+    desc: [
+      '长按事件触发的回调函数',
+      '需要长按功能设置为打开时生效',
+    ],
+    tag: 'params',
+  },
+  {
+    prop: 'menuPress',
+    name: '是否允许右键',
+    type: [
+      'Boolean',
+    ],
+    default: 'false',
+    optional: [
+      'true',
+      'false',
+    ],
+    desc: [
+      '右键功能开关',
+      '并不包含菜单UI',
+    ],
+    tag: 'params',
+  },
+  {
+    prop: 'menuPressEvent',
+    name: '右键按下触发的回调函数',
+    type: [
+      'Function',
+    ],
+    default: '-',
+    optional: [
+      '右键按下触发的回调函数',
+    ],
+    desc: [
+      '右键按下触发的回调函数',
+      '需要右键功能设置为打开时生效',
+    ],
+    tag: 'params',
+  },
 
   {
     prop: 'icon',
