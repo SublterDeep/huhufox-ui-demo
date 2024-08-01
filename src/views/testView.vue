@@ -1,98 +1,76 @@
 <template>
   <div class="wrap">
+
     <div class="title">测试</div>
     <div class="title_s m_b">Test view</div>
     <div class="desc">用于测试一些函数功能</div>
     <div class="divider"></div>
-    <div class="flex-col flex-alc flex-gap">
-      <!-- <Yanzheng/> -->
-      <el-button @click="testRandom" type="primary">Random Arr Num Chunk Test</el-button>
-      <el-button @click="testArrDifference" type="primary">Arr Difference Test</el-button>
-      <div><el-input @input="handleInput" type="textarea" ref="textareadev" :rows="2" placeholder="请输入内容"
-          v-model="textarea" /></div>
-      <el-button @click="testMerge" type="primary">Merge Object Test</el-button>
+    
+    <div class="flex-col box">
+      <!-- 内容卡片 -->
+      <div class="wrap">
+        <div class="title_s m_b">大标题</div>
+        <div class="desc m_b">小标题</div>
+        <div class="box">
+          <div class="boxitem">
+            <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
+              <fox_collapse_item :position="'bottom'" class="displayArea">
+                <template v-slot:header>
+                  <!-- 组件放这 -->
+                </template>
+                <p class="tal">Template:</p>
+                <!-- <pre><code class="language-xml line-numbers" v-text="codeText[0][0]"></code></pre> -->
+                <p class="tal">Script:</p>
+                <!-- <pre><code class="language-js line-numbers" v-text="codeText[0][1]"></code></pre> -->
+              </fox_collapse_item>
+            </fox_collapse>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <!-- 参数列表 -->
+      <div class="wrap">
+        <div class="title_s m_b">参数列表</div>
+        <paramList :dataList="params"></paramList>
+      </div>
+      <div class="divider"></div>
+
+      <!-- 更新计划 -->
+      <div class="wrap">
+        <div class="title_s m_b">更新计划：</div>
+        <div class="desc">1.更新计划：</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { debounce } from 'lodash';
-import { arrToday, arrYesterday } from '@/assets/fakedata/testView';
+// import { codeBlock, paramList } from '@/assets/fakedata/xxxView';
 export default {
   name: 'testView',
   data() {
     return {
-      textarea: '',
+      codeText: [],
+      params: [],
     }
+  },
+  updated() {
+    Prism.highlightAll(); //修改内容后重新渲染
+  },
+  beforeMount() {
+    // this.codeText = _.cloneDeep(codeBlock);
+    // this.params = _.cloneDeep(paramList);
   },
   mounted() {
+    Prism.highlightAll();
   },
   methods: {
-    testMerge() {
-      const object1 = {
-        a: 1,
-        b: {
-          c: 2,
-          d: 3
-        }
-      };
-
-      const object2 = {
-        a: 'object2 a',
-        b: 'object2 b',
-        f: 7
-      };
-
-      const object3 = {
-        b: 'object3 b',
-        g: 8
-      };
-
-      let mergeObj = _.merge(object1, object2, object3);
-      console.log(mergeObj);
-    },
-    handleInput: debounce((i) => {
-      console.log(i);
-    }, 500),
-    testRandom() {
-      let loopTime = _.random(5, 15);
-      let arrRandnum = [];
-      for (let i = 0; i < loopTime; i++) {
-        arrRandnum.push(_.random(1, 150));
-      }
-      let arrChunkRandnum = _.chunk(arrRandnum, 3);
-      console.log(arrRandnum);
-      console.log(arrChunkRandnum);
-    },
-    testArrDifference() {
-      // let isDiff = _.differenceBy(arrToday, arrYesterday, (o) => {
-      //   return o.shopId + o.shopId + o.devId
-      // })
-      let [diffAtoB, diffBtoA] = this.findDifferences(arrToday, arrYesterday);
-      console.log(diffAtoB);
-      console.log(diffBtoA);
-    },
-    // 对比A, B数组 将A与B的差异 和 B与A的差异分别存在数组中 并返回[diffAtoB, diffBtoA]
-    findDifferences(a, b) {
-      // 辅助函数，用于检查对象是否存在于数组中（具有相同所有属性）  
-      function isEquivalentInArray(obj, arr) {
-        return _.some(arr, function (item) {
-          return _.isEqual(obj, item);
-        });
-      }
-      // 使用 _.filter 找出在 b 中不存在的对象  
-      const diffAtoB = _.filter(a, function (objA) {
-        return !isEquivalentInArray(objA, b);
-      });
-      // 使用 _.filter 找出在 a 中不存在的对象  
-      const diffBtoA = _.filter(b, function (objB) {
-        return !isEquivalentInArray(objB, a);
-      });
-      // 返回两个差异数组  
-      return [diffAtoB, diffBtoA];
-    }
   },
 }
 </script>
 <style scoped lang="scss">
+.displayArea {
+  background-color: var(--collapse-bg);
+}
 </style>

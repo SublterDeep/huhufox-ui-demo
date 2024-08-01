@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-
     <!-- 左侧列表 -->
     <section id="leftWrap">
-      <div class="flex-center m_b" style="width: 100%;">
-        <img style="max-width: 100%;" src="@/assets/logo/huhufoxUI_transparent.png" alt="">
+      <div class="logo flex-center m_b" style="width: 100%;">
+        <!-- <img style="max-width: 100%;" :src="`@/assets/logo/huhufoxUI${darkMode?'_light_':'_'}transparent.png`" alt=""> -->
       </div>
       <div id="leftWrapContainer">
         <div @click="goPage(item, idx)" v-for="(item, idx) in arrPage" :key="idx"
           :class="`leftWrapContainer_item ${idx === numNowSelect ? 'leftWrapContainer_item_active' : ''}`"><span>{{
             item.label
-          }}</span></div>
+            }}</span></div>
       </div>
     </section>
 
@@ -24,6 +23,9 @@
     <!-- 回到顶部 -->
     <section id="toTop" @click="handleToTop">Top</section>
 
+    <!-- 白天黑夜模式切换 -->
+    <section id="switchTheme" @click="handleTheme">{{ darkMode?'浅色':'深色' }}</section>
+
   </div>
 </template>
 
@@ -35,7 +37,13 @@ export default {
     return {
       arrPage: [],
       numNowSelect: 0,
+      darkMode: false,
     }
+  },
+  created() {
+    let theme = localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')) : 'light';
+    this.darkMode = (theme === 'light' ? false : true);
+    document.documentElement.setAttribute('theme', theme);
   },
   mounted() {
     this.arrPage = _.cloneDeep(routes);
@@ -47,7 +55,7 @@ export default {
   methods: {
     goPage(pageData, index) {
       // 离开某页前保存滚动条位置
-      this.$store.commit('setPageScroll', { page: this.arrPage[this.numNowSelect].name, progress: this.$refs.mainWrap.scrollTop});
+      this.$store.commit('setPageScroll', { page: this.arrPage[this.numNowSelect].name, progress: this.$refs.mainWrap.scrollTop });
       setTimeout(() => {
         this.numNowSelect = index;
         // 进入某页后调整滚动条位置
@@ -66,10 +74,19 @@ export default {
     handleToTop() {
       this.$refs.mainWrap.scrollTo({ top: 0, behavior: "smooth" });
     },
+    handleTheme() {
+      this.darkMode = !this.darkMode;
+      let str = this.darkMode ? 'dark' : 'light';
+      document.documentElement.setAttribute('theme', str);
+      localStorage.setItem('theme', JSON.stringify(str));
+    },
   },
 }
 </script>
-<style>
+
+<style src="./style.css"></style>
+<style src="./theme.css"></style>
+<style lang="scss">
 /* 页面结构样式 */
 html,
 body {
@@ -88,10 +105,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: var(--bg);
+  color: var(--font-normal);
   height: 100%;
   display: flex;
   padding-left: 5%;
+  transition: 
+    background-color .2s,
+    color .1s
+    ;
 }
 
 pre {
@@ -99,16 +121,6 @@ pre {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-}
-
-/* 公共样式 - 容器 */
-.wrap {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  /* align-items: flex-start; */
 }
 
 .box {
@@ -171,6 +183,7 @@ pre {
   overflow: auto;
   box-sizing: border-box;
   padding-right: 15%;
+
   .mainWrapContainer {
     width: 100%;
   }
@@ -187,7 +200,7 @@ pre {
   border-radius: 50%;
   border: 1px solid #DBB6EE;
   transition: .2s;
-  background-color: #fdfdfd;
+  background-color: var(--toTop-bg);
   text-align: center;
   line-height: 5vh;
   font-size: 1.5vh;
@@ -211,139 +224,53 @@ pre {
   opacity: 1;
 }
 
-/* 公共样式 - 文字 */
-.title_l {
-  width: 100%;
-  font-size: 30px;
-  text-align: left;
-  font-weight: bold;
-  line-height: 2.2;
-}
-
-.title {
-  width: 100%;
-  font-size: 25px;
-  text-align: left;
-  font-weight: bold;
-  line-height: 2;
-}
-
-.title_s {
-  width: 100%;
-  font-size: 20px;
-  text-align: left;
-  font-weight: bold;
-  line-height: 1.7;
-}
-
-.desc {
-  color: #909399;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* 公共样式 - 内容 */
-.flex {
-  display: flex;
-}
-
-.flex-rev {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-col-rev {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.flex-alc {
-  display: flex;
-  align-items: center;
-}
-
-.flex-juc {
-  display: flex;
-  justify-content: center;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-evenly {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flex-gap {
-  display: flex;
-  gap: 15px;
-}
-
-.m_t {
-  margin-top: 15px !important;
-}
-
-.m_b {
-  margin-bottom: 15px !important;
-}
-
-.m_l {
-  margin-left: 15px !important;
-}
-
-.m_r {
-  margin-right: 15px !important;
-}
-
-.tal {
-  text-align: left !important;
-}
-
-.tac {
-  text-align: center !important;
-}
-
-.tar {
-  text-align: right !important;
-}
-
-.divider {
-  width: 100%;
-  height: 50px;
-}
-
-.divider_line {
-  width: 100%;
-  height: 1px;
-  margin-top: 24.5px;
-  margin-bottom: 24.5px;
-  background-color: #DCDFE6;
-}
-
-/* 公共样式 - 样式 */
-.nsel {
+#switchTheme {
+  width: 5vh;
+  height: 5vh;
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid #DBB6EE;
+  transition: .2s;
+  background-color: var(--toTop-bg);
+  text-align: center;
+  line-height: 5vh;
+  font-size: 1.5vh;
+  color: #DBB6EE;
   user-select: none;
+  opacity: .6;
 }
 
-.nact {
-  pointer-events: none;
+#switchTheme:hover {
+  background-color: #DBB6EE;
+  border-color: #DBB6EE;
+  color: #fff;
+  opacity: 1;
 }
+
+#switchTheme:active {
+  background-color: #B39EDB;
+  border-color: #B39EDB;
+  color: #fff;
+  transform: scale(0.97);
+  opacity: 1;
+}
+
+.logo {
+  height: 100px;
+  /* 加载背景图 */
+  background-image: var(--logo);
+  /* 背景图垂直、水平均居中 */
+  background-position: center center;
+  /* 背景图不平铺 */
+  background-repeat: no-repeat;
+  /* 让背景图基于容器大小伸缩 */
+  background-size: contain;
+}
+
 
 /* 滚动条样式 */
 ::-webkit-scrollbar {

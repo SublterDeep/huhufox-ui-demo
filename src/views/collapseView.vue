@@ -11,7 +11,7 @@
         <div class="title_s m_b">标准折叠面板</div>
         <div class="desc">由外层折叠面板标签< fox_collapse >< /fox_collapse ></div>
         <div class="desc m_b">和内层折叠列表项标签< fox_collapse_item >< / fox_collapse_item >实现</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -33,7 +33,7 @@
       <div class="wrap">
         <div class="title_s m_b">按钮图标位置可调</div>
         <div class="desc m_b">在每个列表项标签上设置position属性以调节图标位置</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -55,7 +55,7 @@
       <div class="wrap">
         <div class="title_s m_b">手风琴效果</div>
         <div class="desc m_b">打开一个新的折叠列表项时,前一个打开的折叠列表项会自动关闭</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -79,7 +79,7 @@
         <div class="desc">按钮图标支持自定义开关</div>
         <div class="desc">按钮文本支持自定义文本</div>
         <div class="desc m_b">内容区域支持自定义锁定</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -102,7 +102,7 @@
       <div class="wrap">
         <div class="title_s m_b">颜色自定义</div>
         <div class="desc m_b">边框颜色支持自定义颜色</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -121,7 +121,7 @@
         <div class="divider"></div>
 
         <div class="desc m_b">内容背景色支持自定义颜色</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -140,7 +140,7 @@
         <div class="divider"></div>
 
         <div class="desc m_b">展开图标鼠标悬浮色支持自定义颜色</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -162,7 +162,7 @@
       <div class="wrap">
         <div class="title_s m_b">多重嵌套</div>
         <div class="desc m_b">俄罗斯套娃</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -211,7 +211,7 @@
         <div class="desc">按钮插槽v-slot:icon</div>
         <div class="desc">底部展开按钮文字插槽v-slot:bottomText</div>
         <div class="desc m_b">底部展开按钮插槽v-slot:bottom</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -252,7 +252,7 @@
         <div class="desc">默认展开参数可设置在折叠面板标签上，影响所有子项</div>
         <div class="desc m_b">也可以单独为某个折叠列表项设置，会覆盖折叠面板设置的参数</div>
         <div class="desc m_b">折叠面板参数为数组</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -274,7 +274,7 @@
 
         <div class="desc">折叠面板参数为布尔值</div>
         <div class="desc m_b">折叠面板项单独设置参数为布尔值</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
@@ -300,11 +300,11 @@
         <div class="desc">吸底效果只针对position属性设置为bottom时，对展开按纽栏footer生效</div>
         <div class="desc">页面滚动到内容区时，footer将吸附在可视区底部</div>
         <div class="desc m_b">每个展示组件底下的代码展开栏就带有吸底效果</div>
-        <fox_collapse :sticky="true">
+        <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
           <fox_collapse_item :position="'bottom'"  class="displayArea">
             <template v-slot:header>
               <!-- 展示内容 -->
-              <fox_collapse :sticky="true">
+              <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
                 <fox_collapse_item :label="'postion为其他值时不生效'" :position="'left'">只对postion设置为bottom的折叠列表项footer生效</fox_collapse_item>
                 <fox_collapse_item :label="'我跟随父折叠面板设定开启吸底效果'" :position="'bottom'">
                   <div style="padding: 300px 0;">我跟随父折叠面板设定开启吸底效果</div>
@@ -314,7 +314,7 @@
                 </fox_collapse_item>
                 <fox_collapse_item :label="'可嵌套，但容易出bug所以不建议'" :position="'bottom'">
                   <div style="padding: 300px 0;">
-                    <fox_collapse :sticky="true">
+                    <fox_collapse :contentColor="'var(--collapse-content)'" :borderColor="'var(--collapse-border)'" :sticky="true">
                       <fox_collapse_item :label="'嵌套的吸底效果1'" :position="'bottom'">
                         <div style="padding: 300px 0;">嵌套的吸底效果1</div>
                       </fox_collapse_item>
@@ -377,7 +377,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .displayArea {
-  background-color: #F1F1F1;
+  background-color: var(--collapse-bg);
 }
 .flex-between>div{
   flex: 1;

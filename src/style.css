@@ -64,10 +64,12 @@
 }
 
 .flex-alc {
+  display: flex;
   align-items: center;
 }
 
 .flex-juc {
+  display: flex;
   justify-content: center;
 }
 
@@ -80,6 +82,12 @@
 .flex-evenly {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -126,6 +134,14 @@
   margin-top: 24.5px;
   margin-bottom: 24.5px;
   background-color: #DCDFE6;
+}
+
+/* 公共样式 - 样式 */
+.nsel {
+  user-select: none;
+}
+.nact {
+  pointer-events: none;
 }
 
 /* 公共样式 - 颜色 */
