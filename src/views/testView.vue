@@ -46,7 +46,7 @@
 </template>
 
 <script>
-// import { codeBlock, paramList } from '@/assets/fakedata/xxxView';
+// import { codeBlock, paramList } from '@/assets/fakedata/xxx View';
 export default {
   name: 'testView',
   data() {

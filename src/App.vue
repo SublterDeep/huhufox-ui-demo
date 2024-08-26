@@ -116,11 +116,30 @@ body {
     ;
 }
 
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 5px;
+  transition: .2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-active);
+}
+
 pre {
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: var(--font-normal);
 }
 
 .box {
@@ -158,7 +177,7 @@ pre {
     }
 
     .leftWrapContainer_item_active {
-      color: #B39EDB;
+      color: var(--theme-active);
     }
 
     .leftWrapContainer_item>span {
@@ -167,7 +186,7 @@ pre {
     }
 
     .leftWrapContainer_item>span:hover {
-      color: #DBB6EE;
+      color: var(--theme);
     }
 
     .leftWrapContainer_item>span:active {
@@ -198,27 +217,27 @@ pre {
   z-index: 10;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid #DBB6EE;
+  border: 1px solid var(--theme);
   transition: .2s;
   background-color: var(--toTop-bg);
   text-align: center;
   line-height: 5vh;
   font-size: 1.5vh;
-  color: #DBB6EE;
+  color: var(--theme);
   user-select: none;
   opacity: .6;
 }
 
 #toTop:hover {
-  background-color: #DBB6EE;
-  border-color: #DBB6EE;
+  background-color: var(--theme);
+  border-color: var(--theme);
   color: #fff;
   opacity: 1;
 }
 
 #toTop:active {
-  background-color: #B39EDB;
-  border-color: #B39EDB;
+  background-color: var(--theme-active);
+  border-color: var(--theme-active);
   color: #fff;
   transform: scale(0.97);
   opacity: 1;
@@ -233,27 +252,27 @@ pre {
   z-index: 10;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid #DBB6EE;
+  border: 1px solid var(--theme);
   transition: .2s;
   background-color: var(--toTop-bg);
   text-align: center;
   line-height: 5vh;
   font-size: 1.5vh;
-  color: #DBB6EE;
+  color: var(--theme);
   user-select: none;
   opacity: .6;
 }
 
 #switchTheme:hover {
-  background-color: #DBB6EE;
-  border-color: #DBB6EE;
+  background-color: var(--theme);
+  border-color: var(--theme);
   color: #fff;
   opacity: 1;
 }
 
 #switchTheme:active {
-  background-color: #B39EDB;
-  border-color: #B39EDB;
+  background-color: var(--theme-active);
+  border-color: var(--theme-active);
   color: #fff;
   transform: scale(0.97);
   opacity: 1;
@@ -261,37 +280,9 @@ pre {
 
 .logo {
   height: 100px;
-  /* 加载背景图 */
   background-image: var(--logo);
-  /* 背景图垂直、水平均居中 */
   background-position: center center;
-  /* 背景图不平铺 */
   background-repeat: no-repeat;
-  /* 让背景图基于容器大小伸缩 */
   background-size: contain;
-}
-
-
-/* 滚动条样式 */
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 5px;
-  transition: .15s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ddd;
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: #aaa;
 }
 </style>

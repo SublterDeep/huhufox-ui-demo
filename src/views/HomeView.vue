@@ -40,19 +40,19 @@ export default {
 <style scoped lang="scss">
 a {
 text-decoration: none;
-color: #000;
+color: var(--font-link);
 transition: .15s;
 }
 
 /* 状态一: 未被访问过的链接 */
 a:link {
 text-decoration: none;
-color: #000;
+color: var(--font-link);
 }
 
 /* 状态二: 已经访问过的链接 */
 a:visited {
 text-decoration: none;
-color: #000;
+color: var(--font-link);
 }
 </style>

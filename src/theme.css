@@ -1,18 +1,32 @@
 :root[theme='light']{
     --bg: #fefefe;
+    --theme: #DBB6EE;
+    --theme-hover: #efd0ff;
+    --theme-active: #B39EDB;
     --font-normal: #2c3e50;
+    --font-link: #000;
     --logo: url('./assets/logo/huhufoxUI_transparent.png');
     --toTop-bg: #fdfdfd;
     --collapse-bg: #f3f3f3;
     --collapse-content: #fefefe;
     --collapse-border: #f1f1f1;
+    --scrollbar: #ccc;
+    --scrollbar-hover: #ddd;
+    --scrollbar-active: #aaa;
 }
 :root[theme='dark']{
     --bg: #121212;
+    --theme: #DBB6EE;
+    --theme-hover: #efd0ff;
+    --theme-active: #B39EDB;
     --font-normal: #ccc;
+    --font-link: #fff;
     --logo: url('./assets/logo/huhufoxUI_light_transparent.png');
     --toTop-bg: #434343;
     --collapse-bg: #222;
     --collapse-content: #2a2a2a;
     --collapse-border: #3a3a3a;
+    --scrollbar: #777;
+    --scrollbar-hover: #888;
+    --scrollbar-active: #555;
 }
